@@ -1,0 +1,101 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+
+  font-family: sans-serif;
+  font-size: 16px;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5) 
+  ),  url("./images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg");
+  /* your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.header {
+
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 70px;
+  padding-top: 20px;
+
+}
+.header h1 {
+
+  font-style: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  color: white;
+  float: left;
+  cursor: pointer;
+  padding-left: 25px;
+
+}
+.navigation ul {
+
+  float: right;
+  padding-right: 25px;
+
+}
+.navigation li {
+
+  list-style: none;
+  display: inline;
+  padding: 7px 12px;
+
+}
+.navigation li a {
+
+  text-decoration: none;
+  color: white;
+  
+}
+div.form {
+  width: 650px;
+  height: 400px;
+  display: block;
+  margin: 0px auto;
+  padding-top: 50px;
+  color:white;
+  margin-top: 10px;
+  /* background-color: red; */
+}
+div.form h3 {
+  text-align: justify;
+  font-size: 29px;
+  word-spacing: 2px;
+}
+div.form span {
+  text-decoration: underline;
+  cursor: pointer;
+  /* color: white; */
+}
+div.form p {
+  text-align: justify;
+  font-size: 25px;
+  font-weight: normal;
+  padding-top: 12px;
+}
+.form_selector {
+  padding: 20px 104px;
+}
+div.form input {
+  padding: 10px;
+  margin: 10px;
+}
+div.form button{
+  padding: 15px 145px;
+  margin-left: 12px;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.signup{
+  border: 1px solid white;
+  border-radius: 5px;
+}

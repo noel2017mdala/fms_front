@@ -1,0 +1,23 @@
+export const FETCH_LOGIN = 'FETCH_LOGIN';
+
+export const login = (e) =>{
+    
+    let url = "http://127.0.0.1:8000/api/login";
+    const headers = new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+    });
+    const request = new Request(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(e),
+    });
+   
+    return async dispatch =>{
+        const response = await fetch(request);
+        const resData = await response.json();
+        let data = resData;
+        
+        dispatch({type: FETCH_LOGIN, payLoad: data});  
+    }
+} 
