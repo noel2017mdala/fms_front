@@ -1,3 +1,5 @@
+import toast from 'toasted-notes'
+import 'toasted-notes/src/styles.css';
 
 class InfoClass{
 constructor(override, ){
@@ -7,16 +9,11 @@ this.override = override = `
     border-color: white;
     `;
 }
-
-saveToken = e =>{
-    // console.log(e);
-// localStorage.setItem('login', e);
-// return true;   
-}
-
 alertErroMsg = (e) =>{
     let msg = e;
-//    console.log(msg);
+    toast.notify(msg,{
+        duration: 5000,
+    });
 }
 
 }

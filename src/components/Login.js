@@ -3,9 +3,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../redux/actions/actionCreator';
 import ClipLoader from 'react-spinners/ClipLoader';
 import InfoClass from '../classes/componentClass';
-import {BrowserRouter as Router, useHistory} from 'react-router-dom';
+import {BrowserRouter as Router, useHistory, Redirect} from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import Style from '../styles/Style';
+import Style from '../styles/loginStyle';
+
 
 const Login = () =>{
 
@@ -45,12 +46,10 @@ const select = useSelector((e) =>{
     }
   }
   const hundleFormSubmit = (e) =>{
-    
     if(e === undefined){
       state.loadState = false;
     }else{
-      // let saveToken = paramClass.saveToken(e);
-
+    
       cookies.set('login', e, {
             sameSite: 'strict', 
             path: '/', 
@@ -60,7 +59,7 @@ const select = useSelector((e) =>{
 
         if(cookies.get('login')){
           state.loadState = false;
-          history.push('/dashboard');
+          <Redirect to='/dashboard' />
         }
     }   
   }

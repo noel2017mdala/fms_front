@@ -1,5 +1,7 @@
-export const FETCH_LOGIN = 'FETCH_LOGIN';
+import toast from 'toasted-notes'
+import 'toasted-notes/src/styles.css';
 
+export const FETCH_LOGIN = 'FETCH_LOGIN';
 export const login = (e) =>{
     
     let url = "http://127.0.0.1:8000/api/login";
@@ -21,11 +23,15 @@ export const login = (e) =>{
         if(resData['state']){    
         dispatch({type: FETCH_LOGIN, payLoad: resData}); 
         }else{
-            console.log('incorrect username or password');
+            toast.notify('incorrect Email or Password',{
+                duration: 5000,
+            });
+            
+            dispatch({type: FETCH_LOGIN, payLoad: resData}); 
         }
         }catch(e){
             console.log(e);
         }
                 
     }
-} 
+}
