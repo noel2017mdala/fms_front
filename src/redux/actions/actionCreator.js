@@ -14,10 +14,18 @@ export const login = (e) =>{
     });
    
     return async dispatch =>{
+        try{
+
         const response = await fetch(request);
         const resData = await response.json();
-        let data = resData;
-        
-        dispatch({type: FETCH_LOGIN, payLoad: data});  
+        if(resData['state']){    
+        dispatch({type: FETCH_LOGIN, payLoad: resData}); 
+        }else{
+            console.log('incorrect username or password');
+        }
+        }catch(e){
+            console.log(e);
+        }
+                
     }
 } 

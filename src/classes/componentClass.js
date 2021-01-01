@@ -16,7 +16,7 @@ saveToken = e =>{
 
 alertErroMsg = (e) =>{
     let msg = e;
-   console.log(msg);
+//    console.log(msg);
 }
 
 }

@@ -47,7 +47,6 @@ const select = useSelector((e) =>{
   const hundleFormSubmit = (e) =>{
     
     if(e === undefined){
-      paramClass.alertErroMsg(select.login.data.msg);
       state.loadState = false;
     }else{
       // let saveToken = paramClass.saveToken(e);
@@ -56,7 +55,7 @@ const select = useSelector((e) =>{
             sameSite: 'strict', 
             path: '/', 
             expires: new Date(new Date().getTime() + 10 * 10000),
-            httpOnly: true
+            // httpOnly: true
         });
 
         if(cookies.get('login')){
