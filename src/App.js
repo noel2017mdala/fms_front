@@ -1,10 +1,10 @@
 import React from 'react';
-import Login from './components/Login';
+import Routes from './components/Routes';
 
 function App() { 
   return(
     <div>
-      <Login />
+      <Routes />
       </div>
   )
 }

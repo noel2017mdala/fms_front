@@ -1,6 +1,6 @@
-class InfoClass{
-constructor(override){
 
+class InfoClass{
+constructor(override, ){
 this.override = override = `
     display: block;
     margin: 0 auto;
@@ -9,11 +9,14 @@ this.override = override = `
 }
 
 saveToken = e =>{
-    console.log(e);
-    
+    // console.log(e);
+// localStorage.setItem('login', e);
+// return true;   
 }
-alertErroMsg = e =>{
-    alert(e);
+
+alertErroMsg = (e) =>{
+    let msg = e;
+   console.log(msg);
 }
 
 }
