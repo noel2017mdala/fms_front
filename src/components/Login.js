@@ -30,9 +30,9 @@ const select = useSelector((e) =>{
   const submitInput = (e) =>{
     e.preventDefault();
     if(state.email === '' || state.password === ''){
-      paramClass.alertErroMsg('please Enter your details');
+      paramClass.alertErroMsg('Please enter your Email and Password');
     }else if(state.email && state.password === ''){
-      paramClass.alertErroMsg('please Enter details');
+      paramClass.alertErroMsg('Please enter details');
     }
     else{
 

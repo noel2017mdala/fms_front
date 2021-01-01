@@ -23,7 +23,7 @@ export const login = (e) =>{
         if(resData['state']){    
         dispatch({type: FETCH_LOGIN, payLoad: resData}); 
         }else{
-            toast.notify('incorrect Email or Password',{
+            toast.notify('Incorrect Email or Password',{
                 duration: 5000,
             });
             
