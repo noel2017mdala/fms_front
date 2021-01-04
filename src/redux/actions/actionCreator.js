@@ -2,7 +2,8 @@ import toast from 'toasted-notes'
 import 'toasted-notes/src/styles.css';
 export const FETCH_LOGIN = 'FETCH_LOGIN';
 export const FETCH_ACTIVITIES = 'FETCH_ACTIVITIES';
-export const FETCH_EARNINGS = 'FETCH_EARNINGS'; 
+export const FETCH_EARNINGS = 'FETCH_EARNINGS';
+export const FETCH_EXPENSES = 'FETCH_EXPENSES';
 
 export const login = (e) =>{
     
@@ -105,25 +106,33 @@ export  const getEarnings = (e) =>{
 
 }
 
-// export const getExpenses = (e) =>{
+export const getExpenses = (e) =>{
 
-//     let url = "http://127.0.0.1:8000/api/earnings";
-//     const headers = new Headers({
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json',
-//         // 'Authorization': `Bearer ${e},`
-//     });
-//     const request = new Request(url, {
-//         method: 'GET',
-//         headers: headers,
-//     });
+    let url = "http://127.0.0.1:8000/api/expences";
+    const headers = new Headers({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${e},`
+    });
+    const request = new Request(url, {
+        method: 'GET',
+        headers: headers,
+    });
 
-//     return async dispatch => {
+    return async dispatch => {
+        
+        try{
 
-//         try{
-
-//             const response = await fetch(request);
-//             const resData = await response.json();
-//         }
-//     }
-// }
+            const response = await fetch(request);
+            const resData = await response.json();
+            if(resData['state']){
+                dispatch({type: FETCH_EXPENSES, payLoad: resData });
+            }
+        }catch{
+            toast.notify('Please check you internet connection and try again later',{
+                duration: 5000,
+            });
+            dispatch({type: FETCH_EARNINGS, payLoad: {}}); 
+        }
+    }
+}

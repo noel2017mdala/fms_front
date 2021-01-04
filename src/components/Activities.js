@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import {useDispatch, useSelector} from 'react-redux';
 import activities from '../styles/activitiesStyle';
-import {activitiesAction} from '../redux/actions/actionCreator';
-import {getEarnings as getEarningsData} from '../redux/actions/actionCreator';
+import {activitiesAction, getEarnings as getEarningsData, getExpenses as Expences} from '../redux/actions/actionCreator';
 
 const Activities = (props) =>{
 
@@ -34,7 +33,7 @@ const Activities = (props) =>{
     }
 
     const getExpenses = () =>{
-        
+        dispatch(Expences());
     }
 
     const getDate = (e) =>{
@@ -59,7 +58,9 @@ const Activities = (props) =>{
                 <li style={activities.activities_li}  onClick={() =>{
                     getEarnings();
                 }}><button style={activities.activities_a} >Earnings</button></li>
-                <li style={activities.activities_li} ><button style={activities.activities_a} href='/three'>Expenses</button></li>
+                <li style={activities.activities_li} ><button style={activities.activities_a} onClick={() =>{
+                    getExpenses();
+                }}>Expenses</button></li>
             </ul>
         
                 <div style={activities.activity_list}>
