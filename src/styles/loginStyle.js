@@ -30,6 +30,7 @@ const Style = {
       navigation_ul : {
         float: 'right',
         paddingRight: '25px',
+        paddingTop: '10px',
       },
 
       navigation_li: {
@@ -59,7 +60,7 @@ const Style = {
         paddingTop: '10px',
         color:  'white',
         marginTop: '10px',
-        /* background-color: red; */
+        //  backgroundColor: 'red',
       },
       div_form_h3 : {
         textAlign: 'justify',
