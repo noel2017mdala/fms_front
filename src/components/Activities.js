@@ -3,6 +3,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import {useDispatch, useSelector} from 'react-redux';
 import activities from '../styles/activitiesStyle';
 import {activitiesAction, getEarnings as getEarningsData, getExpenses as Expences} from '../redux/actions/actionCreator';
+import icon from '../images/more-512.webp';
 
 const Activities = (props) =>{
 
@@ -17,23 +18,24 @@ const Activities = (props) =>{
     display: block;
     margin: 0 auto;
     border-color: black;
-    `;
+    margin-top: 160px;
+        `;
 
     useEffect(() =>{
-         dispatch(activitiesAction());
+         dispatch(activitiesAction(props));
         
-    }, [dispatch]);
+    }, [dispatch, props]);
 
     const getEarnings = () =>{
-        dispatch(getEarningsData())
+        dispatch(getEarningsData(props))
     }
 
     const getAllTransacrtions = () =>{
-        dispatch(activitiesAction());
+        dispatch(activitiesAction(props));
     }
 
     const getExpenses = () =>{
-        dispatch(Expences());
+        dispatch(Expences(props));
     }
 
     const getDate = (e) =>{
@@ -41,7 +43,11 @@ const Activities = (props) =>{
         return date.toDateString();
     }
 
+    const displayOption = () =>{
+        console.log('options coming soon');
+    }
     // console.log(select);
+    // console.log(props);
 
     return(
 
@@ -51,21 +57,27 @@ const Activities = (props) =>{
 
      <h3 style={activities.activities_h3}>Recent Activities</h3>
 
+     <img  style={activities.icon_image}src={icon} onClick={() =>{
+         displayOption();
+     }}  alt='options icon'/> 
+     
+
             <ul style={activities.activities_ul}>
-                <li style={activities.activities_li}><button style={activities.activities_a} onClick={() =>{
+                
+                <li style={activities.activities_li}><button style={activities.activities_button} onClick={() =>{
                     getAllTransacrtions();
                 }}>All transaction</button></li>
                 <li style={activities.activities_li}  onClick={() =>{
                     getEarnings();
-                }}><button style={activities.activities_a} >Earnings</button></li>
-                <li style={activities.activities_li} ><button style={activities.activities_a} onClick={() =>{
+                }}><button style={activities.activities_button} >Earnings</button></li>
+                <li style={activities.activities_li} ><button style={activities.activities_button} onClick={() =>{
                     getExpenses();
                 }}>Expenses</button></li>
             </ul>
-        
-                <div style={activities.activity_list}>
+                <div style={activities.activity_list}> 
                   {
-                      !select.activity.activities ? <ClipLoader  css={override} size='20px'/> : select.activity.activities.transaction.map((e) =>(
+                      
+                      !select.activity.activities ? <ClipLoader  css={override} size='40px'/> : !select.activity.activities.transaction ? <ClipLoader  css={override} size='40px'/> : select.activity.activities.transaction.map((e) =>(
                         <div key={e.id} style={activities.activity_list_div}>
                         <p style={activities.activity_list_h3} >{e.transaction_name}</p>
                       <p style={activities.activity_list_p} >K {e.transaction_ammount}</p>
