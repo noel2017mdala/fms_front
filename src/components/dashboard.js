@@ -2,7 +2,13 @@ import React from "react";
 import Cookies from "universal-cookie";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import Activities from "./Activities";
-import "../styles/Dashboard.css";
+import Project from "./Projects";
+
+const style = {
+  display: "inline",
+  float: "left",
+  margin: "10px",
+};
 
 const Dashboard = () => {
   const history = useHistory();
@@ -10,9 +16,14 @@ const Dashboard = () => {
 
   return (
     <Router>
-      <div className="Dashboard">
-        {/* {!cookies.get("login") ? history.push("/") : ""} */}
-        <Activities token={cookies.get("login")} />
+      <div>
+        {!cookies.get("login") ? history.push("/") : ""}
+        <div style={style}>
+          <Activities token={cookies.get("login")} />
+        </div>
+        <div style={style}>
+          <Project />
+        </div>
       </div>
     </Router>
   );
