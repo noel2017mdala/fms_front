@@ -4,6 +4,7 @@ export const FETCH_LOGIN = "FETCH_LOGIN";
 export const FETCH_ACTIVITIES = "FETCH_ACTIVITIES";
 export const FETCH_EARNINGS = "FETCH_EARNINGS";
 export const FETCH_EXPENSES = "FETCH_EXPENSES";
+export const FETCH_PROJECTS = "FETCH_PROJECTS";
 
 export const login = (e) => {
   let url = "http://127.0.0.1:8000/api/login";
@@ -119,6 +120,34 @@ export const getExpenses = (e) => {
         duration: 5000,
       });
       dispatch({ type: FETCH_EARNINGS, payLoad: {} });
+    }
+  };
+};
+
+export const getProjects = (e) => {
+  let url = "http://127.0.0.1:8000/api/projects";
+  const headers = new Headers({
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${e.token}`,
+  });
+  const request = new Request(url, {
+    method: "GET",
+    headers: headers,
+  });
+
+  return async (dispatch) => {
+    try {
+      const response = await fetch(request);
+      const resData = await response.json();
+      if (resData["state"]) {
+        dispatch({ type: FETCH_PROJECTS, payLoad: resData });
+      }
+    } catch {
+      toast.notify("Please check you internet connection and try again later", {
+        duration: 5000,
+      });
+      dispatch({ type: FETCH_PROJECTS, payLoad: {} });
     }
   };
 };

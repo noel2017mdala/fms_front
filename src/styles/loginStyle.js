@@ -112,6 +112,8 @@ const Style = {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     height: "70px",
     paddingTop: "57px",
+    //display: flex
+    //flex-direction: column
   },
 };
 

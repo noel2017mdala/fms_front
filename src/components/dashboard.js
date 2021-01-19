@@ -22,7 +22,7 @@ const Dashboard = () => {
           <Activities token={cookies.get("login")} />
         </div>
         <div style={style}>
-          <Project />
+          <Project token={cookies.get("login")} />
         </div>
       </div>
     </Router>
