@@ -1,77 +1,87 @@
-import React from "react";
+// import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import image from "../images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg";
+
+//grid container
 export const Container = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg");
+    url(${image});
   background-size: cover;
   background-repeat: no-repeat;
-`;
-export const Wrapper = styled.div`
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 1400px;
-  font-family: sans-serif;
-  //   background-image: url(${image});
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.25fr 2fr 0.5fr;
 `;
 
+//navigatin bar
 export const Nav = styled.nav`
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 3rem;
-  padding: 2% 0px;
-`;
+  background-color: rgba(0, 0, 0, 0.3);
 
-export const NavHeader = styled.h1`
-  display: inline;
+  h1 {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-weight: normal;
+    line-heiht: 12px;
+    margin-left: 15px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  ul {
+    float: right;
+    margin-right: 12px;
+    margin-top: -40px;
+  }
+`;
+//navbar links
+export const StyledLink = styled(Link)`
   color: white;
-  margin: 0px 1.5%;
-  font-size: 25px;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  font-style: none;
-  font-weight: normal;
-  cursor: pointer;
-`;
-
-export const NavUl = styled.ul`
-  float: right;
-  margin: 1%;
-`;
-
-export const Navli = styled.li`
-  list-style: none;
-  display: inline;
+  text-decoration: none;
   margin: 12px;
-`;
-export const Content = styled.div`
-  //   background-color: red;
-  width: 50%;
-  display: block;
-  margin: 0px auto;
-  margin-top: 4%;
-  font-size: 25px;
-`;
-
-export const Form = styled.div`
-//   background-color: black;
-  display: block;
-  padding: 12px;
-  margin 0px auto;
-`;
-
-export const Email = styled.input`
-  padding: 12px;
-`;
-
-export const Button = styled.button`
-  display: block;
-  background-color: black;
-  color: white;
-  border: none;
-  margin-top: 4%;
-  padding: 10px 10%;
   font-size: 20px;
-  border-radius: 5px;
+`;
+
+/*
+main content area which contains the login form
+*/
+export const Main = styled.main`
+  // background-color: green;
+  div {
+    // background-color: red;
+    padding-top: 2%;
+    display: block;
+    width: 70%;
+    height: 100%;
+    margin: 0px auto;
+    font-size: 25px;
+    text-align: justfy;
+    color: white;
+  }
+  .first {
+    font-size: 30px;
+    text-align: left;
+  }
+  input {
+    margin-left: 10%;
+    padding: 5px;
+  }
+
+  button {
+    width: 50%;
+    display: block;
+    margin: 5% auto;
+    padding: 15px 0px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    font-size: 18px;
+  }
+`;
+
+//landing page footer
+export const Footer = styled.footer`
+  background-color: black;
 `;
