@@ -1,26 +1,15 @@
 import { React } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Nav as Navigation, StyledLink } from "../../styledComponents";
 import Image from "../../images/white_menu.png";
-import { changeSlider } from "../../redux/actions/actionCreator";
 
 import Sidebar from "./Sidebar";
 
-const Nav = () => {
-  const dispatch = useDispatch();
-  const select = useSelector((e) => {
-    return e;
-  });
-
-  const callSlider = () => {
-    dispatch(changeSlider());
-  };
-  console.log(`from nav ${select.NavbarReducer}`);
+const Nav = (props) => {
   return (
     <Navigation>
       <div>
         <h1>Countfy</h1>
-        {!select.NavbarReducer ? "" : <Sidebar />}
+        {!props.state ? "" : <Sidebar state={props} />}
 
         <ul>
           <StyledLink to="/">Home</StyledLink>
@@ -33,7 +22,7 @@ const Nav = () => {
         src={Image}
         alt="menu"
         onClick={() => {
-          callSlider();
+          props.Slider();
         }}
       />
     </Navigation>

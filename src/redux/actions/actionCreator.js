@@ -5,7 +5,6 @@ export const FETCH_ACTIVITIES = "FETCH_ACTIVITIES";
 export const FETCH_EARNINGS = "FETCH_EARNINGS";
 export const FETCH_EXPENSES = "FETCH_EXPENSES";
 export const FETCH_PROJECTS = "FETCH_PROJECTS";
-export const CHANGE_NAV = "CHANGE_NAV";
 
 export const login = (e) => {
   let url = "http://127.0.0.1:8000/api/login";
@@ -151,8 +150,4 @@ export const getProjects = (e) => {
       dispatch({ type: FETCH_PROJECTS, payLoad: {} });
     }
   };
-};
-
-export const changeSlider = () => {
-  return { type: CHANGE_NAV };
 };

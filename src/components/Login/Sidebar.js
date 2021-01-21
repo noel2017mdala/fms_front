@@ -1,14 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { MobileNavContainer, MobileNav } from "../../styledComponents";
-import { changeSlider } from "../../redux/actions/actionCreator";
-
-const Sidebar = () => {
-  const dispatch = useDispatch();
-  const select = useSelector((e) => {
-    return e;
-  });
-  console.log(`From sidebar ${select.NavbarReducer}`);
+const Sidebar = (props) => {
   return (
     <MobileNavContainer>
       <MobileNav to="/">Home</MobileNav>
@@ -17,7 +9,7 @@ const Sidebar = () => {
       <MobileNav to="signup">Sign up</MobileNav>
       <p
         onClick={() => {
-          dispatch(changeSlider());
+          props.state.Slider();
         }}
       >
         &times; close

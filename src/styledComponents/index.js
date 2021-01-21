@@ -4,6 +4,7 @@ import image from "../images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg";
 
 const media = {
   mobile: "@media(max-width: 550px)",
+  screen: "@media(min-width: 550px)",
 };
 export const Container = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -13,14 +14,14 @@ export const Container = styled.div`
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.25fr 2fr 1fr;
+  grid-template-rows: 0.25fr 2fr 0.4fr;
 
   ${media.mobile} {
     background-image: none;
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 0.4fr 0.9fr;
+    grid-template-rows: 0.4fr 0.4fr 0.6fr;
   }
 `;
 
@@ -53,12 +54,18 @@ export const Nav = styled.nav`
     margin-right: 12px;
     margin-top: -40px;
   }
+
+  img {
+    display: none;
+  }
+
   ${media.mobile} {
     background-color: black;
     h1 {
       font-size: 20px;
     }
     img {
+      display: block;
       position: fixed;
       top: 10px;
       right: 0px;
@@ -153,28 +160,30 @@ export const MobileNav = styled(Link)`
   }
 `;
 export const MobileNavContainer = styled.div`
-  background-color: #222;
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  height: 100%;
-  width: 250px;
-  z-index: 1;
-  // padding-top: 100px;
-  overflow-x: hidden;
+  ${media.mobile} {
+    background-color: #222;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 250px;
+    z-index: 1;
+    // padding-top: 100px;
+    overflow-x: hidden;
 
-  p {
-    text-transform: uppercase;
-    margin: 35px;
-    color: #999;
-  }
+    p {
+      text-transform: uppercase;
+      margin: 35px;
+      color: #999;
+    }
 
-  h3 {
-    position: absolute;
-    bottom: 1px;
-    left: 45px;
-    color: white;
-    cursor: poiter;
+    h3 {
+      position: absolute;
+      bottom: 1px;
+      left: 45px;
+      color: white;
+      cursor: poiter;
+    }
   }
 `;
 //landing page footer
