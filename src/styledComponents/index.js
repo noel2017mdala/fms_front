@@ -1,9 +1,10 @@
-// import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import image from "../images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg";
 
-//grid container
+const media = {
+  mobile: "@media(max-width: 550px)",
+};
 export const Container = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${image});
@@ -12,10 +13,28 @@ export const Container = styled.div`
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.25fr 2fr 0.5fr;
+  grid-template-rows: 0.25fr 2fr 1fr;
+
+  ${media.mobile} {
+    background-image: none;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 0.4fr 0.9fr;
+  }
 `;
 
-//navigatin bar
+//navbar links
+export const StyledLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  margin: 12px;
+  font-size: 20px;
+  ${media.mobile} {
+    display: none;
+  }
+`;
+
 export const Nav = styled.nav`
   background-color: rgba(0, 0, 0, 0.3);
 
@@ -34,20 +53,28 @@ export const Nav = styled.nav`
     margin-right: 12px;
     margin-top: -40px;
   }
-`;
-//navbar links
-export const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  margin: 12px;
-  font-size: 20px;
+  ${media.mobile} {
+    background-color: black;
+    h1 {
+      font-size: 20px;
+    }
+    img {
+      position: fixed;
+      top: 10px;
+      right: 0px;
+      height: 40px;
+      width: 30px;
+      padding-right: 20px;
+    }
+  }
 `;
 
 /*
 main content area which contains the login form
 */
 export const Main = styled.main`
-  // background-color: green;
+  //   background-color: green;
+
   div {
     // background-color: red;
     padding-top: 2%;
@@ -63,13 +90,19 @@ export const Main = styled.main`
     font-size: 30px;
     text-align: left;
   }
-  input {
-    margin-left: 10%;
-    padding: 5px;
-  }
 
+  .email {
+    display: inline;
+    margin-left: 25%;
+    padding: 10px;
+  }
+  .password {
+    display: inline;
+    margin-left: 3%;
+    padding: 10px;
+  }
   button {
-    width: 50%;
+    width: 30%;
     display: block;
     margin: 5% auto;
     padding: 15px 0px;
@@ -79,9 +112,78 @@ export const Main = styled.main`
     border-radius: 2px;
     font-size: 18px;
   }
-`;
 
+  ${media.mobile} {
+    // background-color: black;
+    margin: 2px 0px;
+    div {
+      width: 100%;
+    }
+    .first {
+      display: none;
+    }
+    .second {
+      font-size: 25px;
+      color: black;
+      text-align: center;
+      font-family: sans;
+    }
+
+    .email,
+    .password {
+      display: block;
+      margin: 15px auto;
+      padding: 15px 23px;
+    }
+
+    button {
+      display: block;
+      margin: 10px auto;
+      width: 50%;
+    }
+  }
+`;
+export const MobileNav = styled(Link)`
+  ${media.mobile} {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    padding: 20px 10px;
+    margin: 25px;
+  }
+`;
+export const MobileNavContainer = styled.div`
+  background-color: #222;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 250px;
+  z-index: 1;
+  // padding-top: 100px;
+  overflow-x: hidden;
+
+  p {
+    text-transform: uppercase;
+    margin: 35px;
+    color: #999;
+  }
+
+  h3 {
+    position: absolute;
+    bottom: 1px;
+    left: 45px;
+    color: white;
+    cursor: poiter;
+  }
+`;
 //landing page footer
 export const Footer = styled.footer`
   background-color: black;
+  color: white;
+
+  ${media.mobile} {
+    color: white;
+    text-align: center;
+  }
 `;
