@@ -1,18 +1,17 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import image from "../images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg";
+import image from "../images/william-iven-jrh5lAq-mIs-unsplash.jpg";
 
 const media = {
   mobile: "@media(max-width: 550px)",
-  screen: "@media(min-width: 550px)",
 };
 export const Container = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${image});
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
   display: grid;
+  height: 100vh;
   grid-template-columns: 1fr;
   grid-template-rows: 0.25fr 2fr 0.4fr;
 
@@ -62,22 +61,69 @@ export const Nav = styled.nav`
   ${media.mobile} {
     background-color: black;
     h1 {
+      display: inline-block;
       font-size: 20px;
     }
     img {
       display: block;
-      position: fixed;
-      top: 10px;
+      position: absolute;
+      top: 14px;
       right: 0px;
-      height: 40px;
-      width: 30px;
+      height: 25px;
+      width: 20px;
       padding-right: 20px;
     }
   }
 `;
 
 /*
+side bar menu for mobile devices
+*/
+export const MobileNavContainer = styled.div`
+  ${media.mobile} {
+    background-color: #222;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 250px;
+    z-index: 1;
+    // padding-top: 100px;
+    overflow-x: hidden;
+
+    p {
+      // display: inline-block;
+      // text-transform: uppercase;
+      margin: 30px;
+      // color: #999;
+      color: white;
+      cursor: pointer;
+      font-size: 40px;
+    }
+
+    h3 {
+      display: none;
+      position: absolute;
+      bottom: 1px;
+      left: 45px;
+      color: white;
+      cursor: poiter;
+    }
+  }
+`;
+export const MobileNav = styled(Link)`
+  ${media.mobile} {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    padding: 20px 10px;
+    margin: 25px;
+  }
+`;
+
+/*
 main content area which contains the login form
+and the sign up page
 */
 export const Main = styled.main`
   //   background-color: green;
@@ -150,46 +196,13 @@ export const Main = styled.main`
     }
   }
 `;
-export const MobileNav = styled(Link)`
-  ${media.mobile} {
-    display: block;
-    color: #999;
-    text-decoration: none;
-    padding: 20px 10px;
-    margin: 25px;
-  }
-`;
-export const MobileNavContainer = styled.div`
-  ${media.mobile} {
-    background-color: #222;
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    height: 100%;
-    width: 250px;
-    z-index: 1;
-    // padding-top: 100px;
-    overflow-x: hidden;
 
-    p {
-      text-transform: uppercase;
-      margin: 35px;
-      color: #999;
-    }
-
-    h3 {
-      position: absolute;
-      bottom: 1px;
-      left: 45px;
-      color: white;
-      cursor: poiter;
-    }
-  }
-`;
-//landing page footer
+//Footer Page
 export const Footer = styled.footer`
-  background-color: black;
-  color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+  // color: white;
+  // background-color: black;
+  width: 100%;
 
   ${media.mobile} {
     color: white;

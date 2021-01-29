@@ -25,6 +25,9 @@ const Main = () => {
     return e;
   });
 
+  /*
+  adds user input into a state
+  */
   const handleSubmit = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({
