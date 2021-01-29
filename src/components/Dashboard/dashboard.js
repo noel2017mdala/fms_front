@@ -21,15 +21,18 @@ const Dashboard = () => {
   const cookies = new Cookies();
 
   return (
-    <Dash>
-      <Sidebar />
-      <Nav />
-      <UserInfo />
-      <BalanceStats />
-      <Anouncements />
-      <Activities />
-      <Project />
-    </Dash>
+    <Router>
+      {!cookies.get("login") ? history.push("/") : ""}
+      <Dash>
+        <Sidebar />
+        <Nav />
+        <UserInfo />
+        <BalanceStats />
+        <Anouncements />
+        <Activities token={cookies.get("login")} />
+        <Project token={cookies.get("login")} />
+      </Dash>
+    </Router>
   );
 };
 

@@ -4,8 +4,8 @@ import styled from "styled-components";
 export const Dashboard = styled.div`
   display: grid;
   height: 100vh;
-  grid-template-columns: 0.24fr 0.7fr 1fr 1fr;
-  grid-template-rows: 0.4fr 2fr 2fr;
+  grid-template-columns: 0.15fr 0.7fr 1fr 1fr;
+  grid-template-rows: 0.4fr 2fr 2.7fr;
   grid-template-areas:
     "sidebar nav nav nav"
     "sidebar userInfo balanceStat Announcements"
