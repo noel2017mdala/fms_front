@@ -25,7 +25,7 @@ const Projects = (props) => {
       `;
   return (
     <Project>
-      <div className="projectContainer">
+      <div className="top">
         <img
           src={icon}
           alt="options"
@@ -34,31 +34,31 @@ const Projects = (props) => {
           }}
         />
         <h3>Recent Projects</h3>
-        <div className="projectListing">
-          {!select.projects.data ? (
-            <ClipLoader css={override} size="30px" />
-          ) : !select.projects.data.projects ? (
-            <ClipLoader css={override} size="30px" />
-          ) : select.projects.data.projects < 1 ? (
-            <h3 className="info"> No recent projects found</h3>
-          ) : (
-            select.projects.data.projects.map((e) => (
-              <div key={e.projects_id}>
-                {/* <img
+      </div>
+      <div className="bottom">
+        {!select.projects.data ? (
+          <ClipLoader css={override} size="30px" />
+        ) : !select.projects.data.projects ? (
+          <ClipLoader css={override} size="30px" />
+        ) : select.projects.data.projects < 1 ? (
+          <h3 className="info"> No recent projects found</h3>
+        ) : (
+          select.projects.data.projects.map((e) => (
+            <div key={e.projects_id}>
+              {/* <img
         src={icon}
         alt="options"
         onClick={(e) => {
           console.log(e);
         }}
       /> */}
-                <div className="content">
-                  <p> {e.projects_name}</p>
-                  <span>{getDate(e.date_created)}</span>
-                </div>
+              <div className="content">
+                <p> {e.projects_name}</p>
+                <span>{getDate(e.date_created)}</span>
               </div>
-            ))
-          )}
-        </div>
+            </div>
+          ))
+        )}
       </div>
     </Project>
   );

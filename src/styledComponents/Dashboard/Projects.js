@@ -2,61 +2,51 @@ import styled from "styled-components";
 //import { Link } from "react-router-dom";
 
 export const Projects = styled.div`
-  //  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
-  border: 1px solid #666;
-  grid:area: Projects;
-  padding-bottom: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 1fr;
+  grid-template-areas:
+    "top-bar"
+    "bottom-bar";
+  border-radius: 15px 15px 0px 0px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin 0em 2em;
+  
 
-  .projectContainer{
-    width: 100%;
-    height: 100%;
+  .top {
+    grid-area: top-bar;
+    background: #e65c00;
+    // background: #008ae6;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
   }
-  .projectContainer img{
-    display: block;
-    height: 30px;
-    width: 30px;
+  .top img{
+    width: 25px;
+    height: 25px;
     float: right;
-
-  }
-  .projectContainer > h3{
-    text-align: center;
-    font-size: 1rem;
-    text-transform: uppercase;
-    margin-bottom: 3em;
-  }
-  .projectListing{
-    //background-color: red;
-    display: block;
-    width: 100%;
-    height: 10%;
-  }
-  .projectListing .content{
-    display: block;
-    margin 1em;
-    padding: 1.4em;
-    background-color: black;
-    // color: #666;
-    color: #999;
-    // width: 100%;
-    font-size: 1.2rem;
-    border-radius: .5rem;
-  }
-  .projectListing .content:hover{
+    margin: 25px 15px;
+    cursor: pointer;
     
   }
-  .content p{
-    display: inline;
-    padding: 0 .7em;
-    letter-spacing
-  }
-  .content span{
-    word-spacing: 0.5rem;
-  }
-
-  .projectListing .info{
-    margin-top: 6em;
+  .top > h3 {
     text-align: center;
+    margin: 3em 4em;
     font-size: 1rem;
     text-transform: uppercase;
+  }
+
+  .bottom {
+    grid-area: bottom-bar;
+    margin: 0.5em;
+  }
+  .bottom .info {
+    text-align: center;
+  }
+  :hover {
+    // transform: scale(1.0025);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   }
 `;

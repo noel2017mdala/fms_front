@@ -4,13 +4,14 @@ export const Background = styled.div`
 width: 100%
 height: 100%;
 background: rgba(0, 0, 0, 0.8);
-position: fixed;
-right: 15em;
-top: 6em;
+position: absolute;
+left: -20em;
+top: -15em;
 display: flex;
 justify-content: center;
 border-radius: 10px;
 align-items: center;
+
 `;
 
 export const ModalWrapper = styled.div`

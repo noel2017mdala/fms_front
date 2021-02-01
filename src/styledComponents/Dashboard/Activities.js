@@ -2,39 +2,61 @@ import styled from "styled-components";
 // import { Link } from "react-router-dom";
 
 export const Activities = styled.div`
-  // background-color: purple;
-  grid-area: Activities;
-  border: 1px solid black;
-
-  .container {
-    font-size: 1rem;
-    color: black;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 1fr;
+  grid-template-areas:
+    "top-bar"
+    "bottom-bar";
+  border-radius: 15px 15px 0px 0px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  transition: 0.5s ease;
+  // cursor: pointer;
+  margin 0em 1.5em;
+position: relative;
+  .top-bar {
+    grid-area: top-bar;
+    background: #1aa3ff;
+    // background: #008ae6;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
   }
-  .container img {
-    display: block;
-    height: 30px;
-    width: 30px;
+  .top-bar img{
+    width: 25px;
+    height: 25px;
     float: right;
-    // padding-left: 1em;
+    margin: 25px 15px;
+    cursor: pointer;
+    
   }
-  .container .content > h3 {
+  .top-bar > h3 {
     text-align: center;
+    margin: 1em 3.5em;
     font-size: 1rem;
     text-transform: uppercase;
   }
-  .container ul {
+  .top-bar ul {
     list-style: none;
+    margin: 2em 0em;
   }
-
-  .container ul li {
+  .top-bar li {
     display: inline;
-    margin: 1.5em;
+    margin: 1em;
+    padding: 10px 0px;;
+    cursor: pointer;
   }
 
-  div .list .info {
-    margin-top: 4em;
+  .list {
+    grid-area: bottom-bar;
+    margin: 0.5em;
+  }
+  .list .info {
     text-align: center;
-    font-size: 1rem;
-    text-transform: uppercase;
+  }
+
+  :hover {
+    // transform: scale(1.0025);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
   }
 `;
