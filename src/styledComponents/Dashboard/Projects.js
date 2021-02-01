@@ -52,4 +52,11 @@ export const Projects = styled.div`
   .content span{
     word-spacing: 0.5rem;
   }
+
+  .projectListing .info{
+    margin-top: 6em;
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
 `;

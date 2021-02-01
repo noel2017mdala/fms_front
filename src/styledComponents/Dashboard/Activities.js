@@ -31,7 +31,7 @@ export const Activities = styled.div`
     margin: 1.5em;
   }
 
-  div .list .cof {
+  div .list .info {
     margin-top: 4em;
     text-align: center;
     font-size: 1rem;

@@ -8,6 +8,7 @@ import {
 } from "../../redux/actions/actionCreator";
 import icon from "../../images/more-512.webp";
 import { Activities as Activity } from "../../styledComponents/Dashboard/Activities";
+import Options from "./options/TransactionOptions";
 const Activities = (props) => {
   const [state, setState] = useState({ active: false });
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const Activities = (props) => {
       active: !state.active,
     }));
   };
+
   return (
     <Activity>
       <div className="container">
@@ -91,8 +93,8 @@ const Activities = (props) => {
               <ClipLoader css={override} size="30px" />
             ) : !select.activity.activities.transaction ? (
               <ClipLoader css={override} size="30px" />
-            ) : select.activity.activities.transaction.length === 0 ? (
-              <h3 className="cof">You don't have any recent Transactions</h3>
+            ) : select.activity.activities.transaction.length < 1 ? (
+              <h3 className="info">You don't have any recent Transactions</h3>
             ) : (
               select.activity.activities.transaction.map((e) => (
                 <div key={e.id}>
@@ -104,7 +106,7 @@ const Activities = (props) => {
             )}
           </div>
         </div>
-        {/* {!state.active ? "" : <Options />} */}
+        {!state.active ? "" : <Options state={state} setState={setState} />}
       </div>
     </Activity>
   );

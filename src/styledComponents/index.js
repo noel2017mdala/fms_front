@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import image from "../images/william-iven-jrh5lAq-mIs-unsplash.jpg";
+import image from "../images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg";
 
 const media = {
   mobile: "@media(max-width: 550px)",

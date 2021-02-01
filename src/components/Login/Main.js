@@ -61,14 +61,20 @@ const Main = () => {
     if (e === undefined) {
       state.loadState = false;
     } else {
-      cookies.set("login", e, {
+      cookies.set("login", e.token, {
         sameSite: "strict",
         path: "/",
-        expires: new Date(new Date().getTime() + 200000 * 10000),
+        expires: new Date(new Date().getTime() + 200000 * 1000),
         // httpOnly: true,
         // secure: true,
       });
-
+      cookies.set("user info", e.user_info, {
+        sameSite: "strict",
+        path: "/",
+        expires: new Date(new Date().getTime() + 200000 * 1000),
+        // httpOnly: true,
+        // secure: true,
+      });
       if (cookies.get("login")) {
         history.push("/dashboard");
       }
@@ -109,7 +115,7 @@ const Main = () => {
             Let's get started
             {!state.loadState ? "" : ""}
           </button>
-          {!select.login.data ? "" : hundleFormSubmit(select.login.data.token)}
+          {!select.login.data ? "" : hundleFormSubmit(select.login.data)}
         </div>
       </Router>
     </Mainbar>
