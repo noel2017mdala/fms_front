@@ -38,13 +38,13 @@ const Activities = (props) => {
   }, [dispatch, props]);
 
   const getEarnings = () => {
-    dispatch(getEarningsData(props));
     setState((prevState) => ({
       ...prevState,
       Transations: false,
       Earnings: true,
       Expenses: false,
     }));
+    dispatch(getEarningsData(props));
   };
 
   const getAllTransacrtions = () => {
@@ -58,13 +58,13 @@ const Activities = (props) => {
   };
 
   const getExpenses = () => {
-    dispatch(Expences(props));
     setState((prevState) => ({
       ...prevState,
       Transations: false,
       Earnings: false,
       Expenses: true,
     }));
+    dispatch(Expences(props));
   };
 
   const getDate = (e) => {

@@ -21,7 +21,7 @@ export const ModalWrapper = styled.div`
   background: #fff;
   color: #000;
   display: grid;
-  grid-taplate-colums: 1fr 1fr;
+  grid-template-columns: 1fr;
   position: relative;
   z-index: 10;
   border-radius: 10px;

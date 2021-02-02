@@ -60,7 +60,7 @@ const Main = () => {
   const hundleFormSubmit = (e) => {
     if (e === undefined) {
       state.loadState = false;
-    } else {
+    } else if (e.state) {
       cookies.set("login", e.token, {
         sameSite: "strict",
         path: "/",

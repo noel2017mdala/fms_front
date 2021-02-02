@@ -34,7 +34,6 @@ const TransactionOptions = (props) => {
       showModal: false,
       ListTransaction: true,
     }));
-    console.log(state);
   };
 
   return (
