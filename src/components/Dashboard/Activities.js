@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import Cookies from "universal-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import {
   activitiesAction,
@@ -33,8 +34,12 @@ const Activities = (props) => {
     margin-top: 10px;
         `;
 
+  const cookie = new Cookies();
+  let userInfo = cookie.get("user info");
+  let userData = { token: cookie.get("login"), id: userInfo[0].id };
+
   useEffect(() => {
-    dispatch(activitiesAction(props));
+    dispatch(activitiesAction(userData));
   }, [dispatch, props]);
 
   const getEarnings = () => {
@@ -44,7 +49,7 @@ const Activities = (props) => {
       Earnings: true,
       Expenses: false,
     }));
-    dispatch(getEarningsData(props));
+    dispatch(getEarningsData(userData));
   };
 
   const getAllTransacrtions = () => {
@@ -54,7 +59,7 @@ const Activities = (props) => {
       Earnings: false,
       Expenses: false,
     }));
-    dispatch(activitiesAction(props));
+    dispatch(activitiesAction(userData));
   };
 
   const getExpenses = () => {
@@ -64,13 +69,13 @@ const Activities = (props) => {
       Earnings: false,
       Expenses: true,
     }));
-    dispatch(Expences(props));
+    dispatch(Expences(userData));
   };
 
-  const getDate = (e) => {
-    let date = new Date(e);
-    return date.toDateString();
-  };
+  // const getDate = (e) => {
+  //   let date = new Date(e);
+  //   return date.toDateString();
+  // };
 
   const displayOption = () => {
     setState((prevState) => ({
@@ -128,9 +133,15 @@ const Activities = (props) => {
         ) : (
           select.activity.activities.transaction.map((e) => (
             <div key={e.id}>
-              <p>{e.transaction_name}</p>
-              <p>K {e.transaction_ammount}</p>
-              <p>{getDate(e.transaction_date)}</p>
+              <ul className="user_activity">
+                <li className="classList">
+                  {e.transaction_name}
+                  <span>
+                    K{e.transaction_ammount}
+                    {/* <span className>{getDate(e.transaction_date)}</span> */}
+                  </span>
+                </li>
+              </ul>
             </div>
           ))
         )}

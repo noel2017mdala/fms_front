@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import { getProjects } from "../../redux/actions/actionCreator";
+import ProjectsOption from "./options/ProjectsOption";
 import { Projects as Project } from "../../styledComponents/Dashboard/Projects";
 import icon from "../../images/more-512.webp";
 const Projects = (props) => {
   const dispatch = useDispatch();
   const select = useSelector((e) => {
     return e;
+  });
+
+  const [state, setState] = useState({
+    showOptionsMenu: false,
   });
 
   const getDate = (e) => {
@@ -29,10 +34,14 @@ const Projects = (props) => {
         <img
           src={icon}
           alt="options"
-          onClick={(e) => {
-            console.log(e);
+          onClick={() => {
+            setState((prevstate) => ({
+              ...prevstate,
+              showOptionsMenu: !state.showOptionsMenu,
+            }));
           }}
         />
+        {state.showOptionsMenu ? <ProjectsOption /> : null}
         <h3>Recent Projects</h3>
       </div>
       <div className="bottom">

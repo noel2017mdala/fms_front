@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSpring, animated } from "react-spring";
 import { createTransaction } from "../../../redux/actions/actionCreator";
@@ -62,7 +62,14 @@ const CreateTransaction = ({ state, setState }) => {
       };
 
       dispatch(createTransaction(data, cookies.get("login")));
+      // setTimeout(toggleModal, 2000);
     }
+  };
+  const toggleModal = () => {
+    setState((prevstate) => ({
+      ...prevstate,
+      showModal: false,
+    }));
   };
   return (
     <div>
@@ -108,10 +115,7 @@ const CreateTransaction = ({ state, setState }) => {
                         className="cancel"
                         onClick={(e) => {
                           e.preventDefault();
-                          setState((prevstate) => ({
-                            ...prevstate,
-                            showModal: false,
-                          }));
+                          toggleModal();
                         }}
                       >
                         Cancel

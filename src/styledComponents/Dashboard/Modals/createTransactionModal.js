@@ -11,6 +11,7 @@ display: flex;
 justify-content: center;
 border-radius: 10px;
 align-items: center;
+z-index: 10;
 
 `;
 

@@ -9,10 +9,10 @@ export const Transaction = styled.div`
   height: 60%;
   left: 10.5em;
   top: 2em;
-  ul {
+  .contain ul {
     list-style: none;
   }
-  li {
+  .contain li {
     padding: 10px 0px;
     margin: 1.5em 0em;
     cursor: pointer;

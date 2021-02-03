@@ -29,56 +29,63 @@ export const ModalWrapper = styled.div`
 export const ModalCotent = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   line-height: 1.8;
   color: #141414;
+  overflow: scroll;
 
-  .header {
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #141414;
+    background-image: -webkit-linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.4) 50%,
+      transparent,
+      transparent
+    );
+  }
+
+  .listContent {
+    margin: 1em;
+  }
+
+  .listContent h3 {
     text-align: center;
   }
-  .uservalue {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .transactionlist ul {
+    list-style: none;
   }
 
-  .uservalue input {
-    display: block;
-    padding: 1em;
-    margin: 1em 0em;
+  .transactionlist li {
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    // cursor: pointer;
   }
-  .uservalue label {
-    text-transform: capitalize;
-    font-family: sans;
+  .transactionlist li span {
+    padding: 10px;
   }
-  .uservalue select {
-    display: block;
-    padding: 0.5em;
-    margin: 0em;
-  }
-
-  .uservalue .buttons {
-    position: relative;
-    top: 3em;
-    margin: 0em -2em;
+  .transactionlist li:hover {
+    transform: scale(1.0025);
+    box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.2);
   }
 
-  .uservalue .buttons button {
-    margin: 0em 1.4em;
-    padding: 1em;
-    border: none;
-    border-radius: 8px;
+  .transactionlist li img {
+    width: 20px;
+    float: right;
+    cursor: pointer;
   }
-
-  .uservalue .create {
-    background-color: green;
-    color: white;
-  }
-
-  .uservalue .cancel {
-    background-color: #000;
-    color: white;
+  .transactionlist li img {
+    transform: scale(1.0025);
   }
 `;
 
