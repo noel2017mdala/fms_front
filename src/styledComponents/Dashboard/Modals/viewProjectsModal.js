@@ -29,43 +29,63 @@ export const ModalWrapper = styled.div`
 export const ModalCotent = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   line-height: 1.8;
   color: #141414;
-  margin-bottom: 5em;
+  overflow: scroll;
 
-  .uservalue input {
-    display: block;
-    padding: 1em;
-    margin: 1em 0em;
-  }
-  .uservalue label {
-    text-transform: capitalize;
-    font-family: sans;
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
   }
 
-  .uservalue .buttons {
-    position: relative;
-    top: 3em;
-    margin: 0em -2em;
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #141414;
+    background-image: -webkit-linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.4) 50%,
+      transparent,
+      transparent
+    );
   }
 
-  .uservalue .buttons button {
-    margin: 0em 1.4em;
-    padding: 1em;
-    border: none;
-    border-radius: 8px;
+  .listProjects {
+    margin: 1em;
+  }
+  .listProjects h3 {
+    text-align: center;
+  }
+  .project_list ul {
+    list-style: none;
   }
 
-  .uservalue .create {
-    background-color: green;
-    color: white;
+  .project_list li {
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    // cursor: pointer;
   }
 
-  .uservalue .cancel {
-    background-color: #000;
-    color: white;
+  .project_list li span {
+    padding: 10px;
+  }
+
+  .project_list li:hover {
+    transform: scale(1.0025);
+    box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.2);
+  }
+  .project_list li img {
+    width: 20px;
+    float: right;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  .project_list li img {
+    transform: scale(1.0025);
   }
 `;
 export const CloseModal = styled.div`

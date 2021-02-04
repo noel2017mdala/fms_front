@@ -46,6 +46,27 @@ position: relative;
   .bottom .info {
     text-align: center;
   }
+  .bottom .user_projects{
+    list-style:none;
+  }
+  .bottom .projectList{
+    padding: 2em 0.4em;
+      margin-right: 1.5em;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      font-weight: bold;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.5s ease;
+  }
+  .bottom .projectList span{
+    margin: 0.8em;
+  }
+  .bottom .projectList:hover{
+    transform: scale(1.0025);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  }
   :hover {
     // transform: scale(1.0025);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);

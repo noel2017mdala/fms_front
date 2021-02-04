@@ -12,9 +12,10 @@ export const Activities = styled.div`
   background: white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   transition: 0.5s ease;
-  // cursor: pointer;
+  cursor: pointer;
   margin 0em 1.5em;
 position: relative;
+
   .top-bar {
     grid-area: top-bar;
     background: #1aa3ff;

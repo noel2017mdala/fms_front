@@ -1,4 +1,8 @@
-import { FETCH_PROJECTS, CREATE_PROJECTS } from "../actions/actionCreator";
+import {
+  FETCH_PROJECTS,
+  CREATE_PROJECTS,
+  VIEW_PROJECTS,
+} from "../actions/actionCreator";
 
 let initialState = [];
 
@@ -9,6 +13,11 @@ let projectReducer = (state = initialState, action) => {
       data: action.payLoad,
     };
   } else if (action.type === CREATE_PROJECTS) {
+    return {
+      ...state,
+      projects: action.payLoad,
+    };
+  } else if (action.type === VIEW_PROJECTS) {
     return {
       ...state,
       projects: action.payLoad,

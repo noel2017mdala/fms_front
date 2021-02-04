@@ -54,17 +54,12 @@ const Projects = (props) => {
         ) : (
           select.projects.data.projects.map((e) => (
             <div key={e.projects_id}>
-              {/* <img
-        src={icon}
-        alt="options"
-        onClick={(e) => {
-          console.log(e);
-        }}
-      /> */}
-              <div className="content">
-                <p> {e.projects_name}</p>
-                <span>{getDate(e.date_created)}</span>
-              </div>
+              <ul className="user_projects">
+                <li className="projectList">
+                  {e.projects_name}
+                  <span>{getDate(e.date_created)}</span>
+                </li>
+              </ul>
             </div>
           ))
         )}

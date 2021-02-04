@@ -9,6 +9,7 @@ export const Projects = styled.div`
   height: 60%;
   left: 10.5em;
   top: 2em;
+  z-index: 1;
   .contain ul {
     list-style: none;
   }
