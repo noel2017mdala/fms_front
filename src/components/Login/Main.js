@@ -57,7 +57,7 @@ const Main = () => {
     }
   };
 
-  const hundleFormSubmit = (e) => {
+  const validateServerResponce = (e) => {
     if (e === undefined) {
       state.loadState = false;
     } else if (e.state) {
@@ -115,7 +115,7 @@ const Main = () => {
             Let's get started
             {!state.loadState ? "" : ""}
           </button>
-          {!select.login.data ? "" : hundleFormSubmit(select.login.data)}
+          {!select.login.data ? "" : validateServerResponce(select.login.data)}
         </div>
       </Router>
     </Mainbar>
