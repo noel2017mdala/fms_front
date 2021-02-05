@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const Activities = styled.div`
   display: grid;
+  grid-area: Activities
   grid-template-columns: 1fr;
   grid-template-rows: 0.5fr 1fr;
   grid-template-areas:

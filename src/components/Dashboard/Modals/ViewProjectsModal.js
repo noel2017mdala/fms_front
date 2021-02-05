@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -7,9 +7,13 @@ import {
   ModalCotent,
   CloseModal,
 } from "../../../styledComponents/Dashboard/Modals/viewProjectsModal";
-import { viewprojects } from "../../../redux/actions/actionCreator";
+import {
+  deleteProject,
+  viewprojects,
+} from "../../../redux/actions/actionCreator";
 import Cookies from "universal-cookie";
 import Bin from "../../../images/bin.png";
+import DeleteModal from "./DeleteModal";
 
 const ViewProjects = (props) => {
   // user informatin stored in cookies
@@ -23,6 +27,12 @@ const ViewProjects = (props) => {
   //state selector
   const select = useSelector((e) => {
     return e;
+  });
+
+  //component state
+  const [state, setState] = useState({
+    showDeleteModal: false,
+    userData: userData,
   });
 
   // dispatches the action when the component renders
@@ -68,7 +78,11 @@ const ViewProjects = (props) => {
                           src={Bin}
                           alt="Bin"
                           onClick={() => {
-                            console.log(e.id);
+                            setState((prevState) => ({
+                              ...prevState,
+                              showDeleteModal: !state.showDeleteModal,
+                              id: e.projects_id,
+                            }));
                           }}
                         />
                       </li>
@@ -77,6 +91,13 @@ const ViewProjects = (props) => {
                 ))
               )}
             </div>
+            {state.showDeleteModal ? (
+              <DeleteModal
+                params={state}
+                showModal={setState}
+                action={deleteProject}
+              />
+            ) : null}
           </ModalCotent>
           <CloseModal
             onClick={() => {

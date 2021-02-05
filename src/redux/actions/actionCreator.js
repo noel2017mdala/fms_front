@@ -10,6 +10,7 @@ export const FETCH_ALL_ACTIVITIES = "FETCH _ALL_ACTIVITIES";
 export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 export const CREATE_PROJECTS = "CREATE_PROJECTS";
 export const VIEW_PROJECTS = "VIEW_PROJECTS";
+export const DELETE_PROJECT = "DELETE_PROJECT";
 
 export const login = (e) => {
   let url = "http://127.0.0.1:8000/api/login";
@@ -216,12 +217,12 @@ export const getProjects = (e) => {
   };
 };
 
-export const deleteActivity = (e, userinfo) => {
-  let url = `http://127.0.0.1:8000/api/deletetransaction/${userinfo.userData}/${userinfo.id}`;
+export const deleteActivity = (e) => {
+  let url = `http://127.0.0.1:8000/api/deletetransaction/${e.userData.id}/${e.id}`;
   const headers = new Headers({
     Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: `Bearer ${e}`,
+    Authorization: `Bearer ${e.userData.token}`,
   });
   const request = new Request(url, {
     method: "GET",
@@ -236,14 +237,18 @@ export const deleteActivity = (e, userinfo) => {
         toast.notify("Activity deleted successfuly", {
           duration: 5000,
         });
-        dispatch({ type: DELETE_ACTIVITY, payLoad: resData });
-        //  dispatch({ type: FETCH_ALL_ACTIVITIES, payLoad: resData });
+        // dispatch({ type: DELETE_ACTIVITY, payLoad: resData });
+        // dispatch({ type: FETCH_ALL_ACTIVITIES, payLoad: resData });
+      } else {
+        toast.notify("Faied to delete activity", {
+          duration: 5000,
+        });
       }
     } catch {
       toast.notify("Please check you internet connection and try again later", {
         duration: 5000,
       });
-      dispatch({ type: DELETE_ACTIVITY, payLoad: {} });
+      // dispatch({ type: DELETE_ACTIVITY, payLoad: {} });
     }
   };
 };
@@ -305,6 +310,44 @@ export const viewprojects = (e) => {
         duration: 5000,
       });
       dispatch({ type: VIEW_PROJECTS, payLoad: {} });
+    }
+  };
+};
+
+export const deleteProject = (e) => {
+  console.log(e);
+  let url = `http://127.0.0.1:8000/api/deleteproject/${e.id}`;
+  const headers = new Headers({
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${e.userData.token}`,
+  });
+  const request = new Request(url, {
+    method: "GET",
+    headers: headers,
+  });
+
+  return async (dispatch) => {
+    try {
+      const response = await fetch(request);
+      const resData = await response.json();
+      console.log(resData);
+      if (resData["state"]) {
+        toast.notify("Activity deleted successfuly", {
+          duration: 1000,
+        });
+        // dispatch({ type: DELETE_ACTIVITY, payLoad: resData });
+        // dispatch({ type: FETCH_ALL_ACTIVITIES, payLoad: resData });
+      } else {
+        toast.notify("Faied to delete activity", {
+          duration: 1000,
+        });
+      }
+    } catch {
+      toast.notify("Please check you internet connection and try again later", {
+        duration: 5000,
+      });
+      // dispatch({ type: DELETE_ACTIVITY, payLoad: {} });
     }
   };
 };

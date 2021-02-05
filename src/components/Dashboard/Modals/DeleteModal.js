@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Container } from "../../../styledComponents/Dashboard/Modals/deleteModal";
-import { deleteActivity } from "../../../redux/actions/actionCreator";
+
 import Cookies from "universal-cookie";
-const DeleteModal = ({ modalState, showModal }) => {
+const DeleteModal = (props) => {
   const dispatch = useDispatch();
   const cookie = new Cookies();
   const token = cookie.get("login");
@@ -11,7 +11,7 @@ const DeleteModal = ({ modalState, showModal }) => {
   //   return e;
   // });
   const modalToggle = () => {
-    showModal((prevState) => ({
+    props.showModal((prevState) => ({
       ...prevState,
       showDeleteModal: false,
     }));
@@ -23,7 +23,7 @@ const DeleteModal = ({ modalState, showModal }) => {
         <button
           className="delete"
           onClick={() => {
-            dispatch(deleteActivity(token, modalState));
+            dispatch(props.action(props.params));
             modalToggle();
           }}
         >

@@ -2,6 +2,7 @@ import styled from "styled-components";
 //import { Link } from "react-router-dom";
 
 export const Projects = styled.div`
+grid-area:Projects;
 position: relative;
   display: grid;
   grid-template-columns: 1fr;

@@ -11,10 +11,12 @@ import {
   ModalCotent,
   CloseModal,
 } from "../../../styledComponents/Dashboard/Modals/listTransactionsModal";
+import { deleteActivity as Delete } from "../../../redux/actions/actionCreator";
 const ListTransactions = ({ state, setState }) => {
   const cookie = new Cookies();
   let userInfo = cookie.get("user info");
-  let userData = { token: cookie.get("login"), id: userInfo[0].id };
+  const token = cookie.get("login");
+  let userData = { token: token, id: userInfo[0].id };
 
   const dispatch = useDispatch();
   const select = useSelector((e) => {
@@ -24,7 +26,7 @@ const ListTransactions = ({ state, setState }) => {
   const [modalState, showModal] = useState({
     showDeleteModal: false,
     id: "",
-    userData: userInfo[0].id,
+    userData: userData,
   });
 
   const override = `
@@ -59,8 +61,12 @@ const ListTransactions = ({ state, setState }) => {
             <ModalCotent>
               <div className="listContent">
                 <h3>All Transactions</h3>
-                {!select.activity.allActivities ? (
+                {!select.activity ? (
                   <ClipLoader css={override} size="30px" />
+                ) : !select.activity.allActivities ? (
+                  <ClipLoader css={override} size="30px" />
+                ) : select.activity.allActivities.transactions < 1 ? (
+                  <h3>No activities found</h3>
                 ) : (
                   select.activity.allActivities.transactions.map((e) => (
                     <div key={e.id} className="transactionlist">
@@ -86,7 +92,11 @@ const ListTransactions = ({ state, setState }) => {
                 )}
               </div>
               {modalState.showDeleteModal ? (
-                <DeleteModal modalState={modalState} showModal={showModal} />
+                <DeleteModal
+                  params={modalState}
+                  showModal={showModal}
+                  action={Delete}
+                />
               ) : null}
             </ModalCotent>
             <CloseModal
