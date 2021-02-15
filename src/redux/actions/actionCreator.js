@@ -11,6 +11,7 @@ export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 export const CREATE_PROJECTS = "CREATE_PROJECTS";
 export const VIEW_PROJECTS = "VIEW_PROJECTS";
 export const DELETE_PROJECT = "DELETE_PROJECT";
+export const FETCH_AMOUNT = "FETCH_AMOUNT";
 
 export const login = (e) => {
   let url = "http://127.0.0.1:8000/api/login";
@@ -348,6 +349,34 @@ export const deleteProject = (e) => {
         duration: 5000,
       });
       // dispatch({ type: DELETE_ACTIVITY, payLoad: {} });
+    }
+  };
+};
+
+export const getAmount = (e) => {
+  let url = `http://127.0.0.1:8000/api/getamounttransactions/${e}`;
+  const headers = new Headers({
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    // Authorization: `Bearer ${e.token}`,
+  });
+  const request = new Request(url, {
+    method: "GET",
+    headers: headers,
+  });
+
+  return async (dispatch) => {
+    try {
+      const response = await fetch(request);
+      const resData = await response.json();
+      if (resData["state"]) {
+        dispatch({ type: FETCH_AMOUNT, payLoad: resData });
+      }
+    } catch (e) {
+      toast.notify("Please check you internet connection and try again later", {
+        duration: 5000,
+      });
+      dispatch({ type: FETCH_AMOUNT, payLoad: {} });
     }
   };
 };
