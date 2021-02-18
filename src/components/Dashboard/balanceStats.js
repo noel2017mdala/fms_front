@@ -14,9 +14,10 @@ const BalanceStats = () => {
 
   const cookies = new Cookies();
   const id = cookies.get("user info")[0].id;
+  const token = cookies.get("login");
 
   useEffect(() => {
-    dispatch(getAmount(id));
+    dispatch(getAmount(id, token));
   }, [dispatch]);
 
   let days = [];
@@ -39,9 +40,9 @@ const BalanceStats = () => {
         : !select.getAmountReducer.amount
         ? null
         : select.getAmountReducer.amount.amount_transaction.map((e) => {
-            console.log(e);
             prevAmount.push(e.prev_Amount);
             days.push(e.date_value);
+            // prevAmount.push(select.getAmountReducer.amount.amount[0].Amount);
           })}
       <Line
         data={{
@@ -50,7 +51,7 @@ const BalanceStats = () => {
             {
               label: "Transaction",
               data: [...prevAmount],
-              backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+              backgroundColor: ["rgba(102, 163, 255, 0.6)"],
               borderWidth: 1,
             },
           ],

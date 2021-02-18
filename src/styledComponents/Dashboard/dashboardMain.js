@@ -11,4 +11,5 @@ export const Dashboard = styled.div`
     "sidebar userInfo balanceStat Announcements"
     "sidebar userInfo Activities Projects";
   grid-gap: 0.6rem;
+  background: #eee;
 `;

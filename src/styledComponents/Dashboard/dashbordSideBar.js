@@ -11,6 +11,7 @@ export const Sidebar = styled.div`
     "image"
     "bottom-bar";
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  background: white;
 `;
 
 export const ImageNav = styled.div`
@@ -26,8 +27,9 @@ export const BottomNav = styled.div`
 
   .image-container img {
     display: block;
-    width: 50%;
-    margin: 5.5em 1em;
+    width: 35%;
+    margin: 4em 0.6em;
     cursor: pointer;
+    padding: 0em 0.5em;
   }
 `;

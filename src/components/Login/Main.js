@@ -1,13 +1,9 @@
 import { React, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/actions/actionCreator";
-import ClipLoader from "react-spinners/ClipLoader";
+// import ClipLoader from "react-spinners/ClipLoader";
 import InfoClass from "../../classes/componentClass";
-import {
-  BrowserRouter as Router,
-  useHistory,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { Main as Mainbar } from "../../styledComponents";
 const Main = () => {

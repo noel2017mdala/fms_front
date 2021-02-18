@@ -64,12 +64,17 @@ export const createTransaction = (e, token) => {
     try {
       const response = await fetch(request);
       const resData = await response.json();
+      console.log(resData);
 
       if (resData["state"]) {
         toast.notify("transaction created successfully", {
           duration: 5000,
         });
         dispatch({ type: CREATE_TRANSACTION, payLoad: resData });
+      } else {
+        toast.notify("You have insufficient funds", {
+          duration: 5000,
+        });
       }
     } catch {
       toast.notify("Please check you internet connection and try again later", {
@@ -219,15 +224,16 @@ export const getProjects = (e) => {
 };
 
 export const deleteActivity = (e) => {
-  let url = `http://127.0.0.1:8000/api/deletetransaction/${e.userData.id}/${e.id}`;
+  let url = `http://127.0.0.1:8000/api/deletetransaction`;
   const headers = new Headers({
     Accept: "application/json",
     "Content-Type": "application/json",
     Authorization: `Bearer ${e.userData.token}`,
   });
   const request = new Request(url, {
-    method: "GET",
+    method: "POST",
     headers: headers,
+    body: JSON.stringify(e),
   });
 
   return async (dispatch) => {
@@ -353,12 +359,12 @@ export const deleteProject = (e) => {
   };
 };
 
-export const getAmount = (e) => {
+export const getAmount = (e, token) => {
   let url = `http://127.0.0.1:8000/api/getamounttransactions/${e}`;
   const headers = new Headers({
     Accept: "application/json",
     "Content-Type": "application/json",
-    // Authorization: `Bearer ${e.token}`,
+    Authorization: `Bearer ${token}`,
   });
   const request = new Request(url, {
     method: "GET",

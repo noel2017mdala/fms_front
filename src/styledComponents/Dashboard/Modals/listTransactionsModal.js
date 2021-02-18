@@ -33,7 +33,7 @@ export const ModalCotent = styled.div`
   align-items: center;
   line-height: 1.8;
   color: #141414;
-  overflow: scroll;
+  overflow: auto;
 
   ::-webkit-scrollbar {
     width: 8px;

@@ -10,11 +10,11 @@ import Anouncements from "./Announcements";
 import Nav from "./Nav";
 import { Dashboard as Dash } from "../../styledComponents/Dashboard/dashboardMain";
 
-const style = {
-  display: "inline",
-  float: "left",
-  margin: "10px",
-};
+// const style = {
+//   display: "inline",
+//   float: "left",
+//   margin: "10px",
+// };
 
 const Dashboard = () => {
   const history = useHistory();
