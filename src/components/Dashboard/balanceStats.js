@@ -25,14 +25,16 @@ const BalanceStats = () => {
 
   return (
     <Statistics>
-      Available Balance : K
-      {!select.getAmountReducer
-        ? null
-        : !select.getAmountReducer.amount
-        ? null
-        : !select.getAmountReducer.amount
-        ? null
-        : ` ${select.getAmountReducer.amount.amount[0].Amount}`}
+      <p>
+        Available Balance : K
+        {!select.getAmountReducer
+          ? null
+          : !select.getAmountReducer.amount
+          ? null
+          : !select.getAmountReducer.amount
+          ? null
+          : ` ${select.getAmountReducer.amount.amount[0].Amount}`}
+      </p>
       {!select.getAmountReducer
         ? null
         : !select.getAmountReducer.amount

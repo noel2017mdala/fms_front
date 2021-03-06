@@ -1,31 +1,35 @@
 import { React } from "react";
-import { Nav as Navigation, StyledLink } from "../../styledComponents";
+import { Header, StyledLink } from "../../styledComponents";
 import Image from "../../images/white_menu.png";
 
 import Sidebar from "./Sidebar";
 
 const Nav = (props) => {
   return (
-    <Navigation>
-      <div>
-        <h1>Countfy</h1>
+    <Header>
+      <nav>
+        <h1>
+          <a href="/">Countfy</a>
+        </h1>
         {!props.state ? "" : <Sidebar state={props} />}
 
-        <ul>
+        <ul className="nav-container">
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/about">About</StyledLink>
           <StyledLink to="/contacts">Contacts</StyledLink>
-          <StyledLink to="signup">Sign up</StyledLink>
+          <StyledLink to="/signup" className="signup">
+            Sign up
+          </StyledLink>
         </ul>
-      </div>
-      <img
+      </nav>
+      {/* <img
         src={Image}
         alt="menu"
         onClick={() => {
           props.Slider();
         }}
-      />
-    </Navigation>
+      /> */}
+    </Header>
   );
 };
 

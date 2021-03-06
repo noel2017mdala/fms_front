@@ -79,39 +79,45 @@ const Main = () => {
   return (
     <Mainbar>
       <Router>
-        <div>
+        <div className="container">
           {cookies.get("login") ? history.push("/dashboard") : ""}
-          <p className="first">
-            Find out why <span>Countfy</span> is the Leading Financial
-            management software and why we receive more that
-            <span>12 million</span> Visitors in a single day
-          </p>
-          <p className="second">
-            Countfy Makes tracking and managing of your finances easy, fast and
-            secure. So let's get started now.
-          </p>
+          <div className="form">
+            <div className="company-profile">
+              <p>
+                Find out why <span>Countfy</span> is the Leading Financial
+                management software and why we receive more that
+                <span>12 million</span> Visitors in a single day Countfy Makes
+                tracking and managing of your finances easy, fast and secure. So
+                let's get started now.
+              </p>
+            </div>
 
-          <input
-            className="email"
-            type="text"
-            name="email"
-            placeholder="Email"
-            required="required"
-            onChange={handleSubmit}
-          />
-          <input
-            className="password"
-            type="password"
-            name="password"
-            placeholder="password"
-            required="required"
-            onChange={handleSubmit}
-          />
-          <button onClick={submitInput}>
-            Let's get started
-            {!state.loadState ? "" : ""}
-          </button>
-          {!select.login.data ? "" : validateServerResponce(select.login.data)}
+            <div className="login-form">
+              <input
+                className="email"
+                type="text"
+                name="email"
+                placeholder="Email"
+                required="required"
+                onChange={handleSubmit}
+              />
+              <input
+                className="password"
+                type="password"
+                name="password"
+                placeholder="password"
+                required="required"
+                onChange={handleSubmit}
+              />
+              <button onClick={submitInput}>
+                Let's get started
+                {!state.loadState ? "" : ""}
+              </button>
+              {!select.login.data
+                ? ""
+                : validateServerResponce(select.login.data)}
+            </div>
+          </div>
         </div>
       </Router>
     </Mainbar>
