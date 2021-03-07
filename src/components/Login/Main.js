@@ -1,86 +1,49 @@
 import { React, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/actions/actionCreator";
-// import ClipLoader from "react-spinners/ClipLoader";
-import InfoClass from "../../classes/componentClass";
+import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
-import Cookies from "universal-cookie";
+import ClipLoader from "react-spinners/ClipLoader";
 import { Main as Mainbar } from "../../styledComponents";
+import { submit, login } from "../../redux/actions/Login/LoginAction";
+import Common from "../../classes/componentClass";
+
 const Main = () => {
+  //Log in State manager
   const [state, setState] = useState({
     email: "",
     password: "",
-    loadState: false,
   });
-
   const dispatch = useDispatch();
-  const paramClass = InfoClass;
-  const history = useHistory();
-  const cookies = new Cookies();
-  const select = useSelector((e) => {
-    return e;
-  });
 
-  /*
-  adds user input into a state
-  */
+  // collects user info and add them to state
   const handleSubmit = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({
       ...prevState,
       [name]: value,
-      loadState: false,
     }));
   };
+  // redux initial state
+  const logInloder = useSelector((state) => state.login);
 
   /*
-  collects and validates user inputs
-  and dispatches an action;
+  validates user input before sending 
+  it to the server
   */
-  const submitInput = (e) => {
-    e.preventDefault();
-    if (state.email === "" || state.password === "") {
-      paramClass.alertErroMsg("Please enter your Email and Password");
-    } else if (state.email && state.password === "") {
-      paramClass.alertErroMsg("Please enter details");
+  const ValidateInput = (param) => {
+    if (param.email === "") {
+      Common.alertMsg("Email cannot be empty");
+    } else if (param.password === "") {
+      Common.alertMsg("Password Cannot be empty");
     } else {
-      dispatch(login(state));
-
-      setState((prevState) => ({
-        ...prevState,
-        loadState: true,
-      }));
+      dispatch(submit());
+      dispatch(login(param));
     }
   };
 
-  const validateServerResponce = (e) => {
-    if (e === undefined) {
-      state.loadState = false;
-    } else if (e.state) {
-      cookies.set("login", e.token, {
-        sameSite: "strict",
-        path: "/",
-        expires: new Date(new Date().getTime() + 200000 * 1000),
-        // httpOnly: true,
-        // secure: true,
-      });
-      cookies.set("user info", e.user_info, {
-        sameSite: "strict",
-        path: "/",
-        expires: new Date(new Date().getTime() + 200000 * 1000),
-        // httpOnly: true,
-        // secure: true,
-      });
-      if (cookies.get("login")) {
-        history.push("/dashboard");
-      }
-    }
-  };
   return (
     <Mainbar>
       <Router>
         <div className="container">
-          {cookies.get("login") ? history.push("/dashboard") : ""}
           <div className="form">
             <div className="company-profile">
               <p>
@@ -109,13 +72,16 @@ const Main = () => {
                 required="required"
                 onChange={handleSubmit}
               />
-              <button onClick={submitInput}>
+              <button
+                onClick={() => {
+                  ValidateInput(state);
+                }}
+              >
                 Let's get started
-                {!state.loadState ? "" : ""}
+                {logInloder ? (
+                  <ClipLoader size="20px" css={Common.override} />
+                ) : null}
               </button>
-              {!select.login.data
-                ? ""
-                : validateServerResponce(select.login.data)}
             </div>
           </div>
         </div>
