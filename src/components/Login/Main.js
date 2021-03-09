@@ -24,6 +24,7 @@ const Main = () => {
   };
   // redux initial state
   const logInloder = useSelector((state) => state.login);
+  const getAuthStatus = useSelector((status) => status);
 
   /*
   validates user input before sending 
@@ -39,6 +40,9 @@ const Main = () => {
       dispatch(login(param));
     }
   };
+
+  //used to redirect user after login
+  const history = useHistory();
 
   return (
     <Mainbar>
@@ -84,6 +88,7 @@ const Main = () => {
               </button>
             </div>
           </div>
+          {getAuthStatus.auth ? history.push("/dashboard") : null}
         </div>
       </Router>
     </Mainbar>
