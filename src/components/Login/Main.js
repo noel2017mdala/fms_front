@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
+import Cookies from "universal-cookie";
 import { Main as Mainbar } from "../../styledComponents";
 import { submit, login } from "../../redux/actions/Login/LoginAction";
 import Common from "../../classes/componentClass";
@@ -43,6 +44,14 @@ const Main = () => {
 
   //used to redirect user after login
   const history = useHistory();
+
+  /*gets and sets data to cookies*/
+  const cookies = new Cookies();
+
+  if (cookies.get("auth_token") && cookies.get("user_info")) {
+    history.push("/dashboard");
+    console.log("Ready to push");
+  }
 
   return (
     <Mainbar>

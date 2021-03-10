@@ -22,16 +22,24 @@ const Dashboard = () => {
 
   return (
     <Router>
-      {!cookies.get("login") ? history.push("/") : ""}
+      {!cookies.get("auth_token") && !cookies.get("user_info")
+        ? history.push("/")
+        : ""}
       <Dash>
         <Sidebar />
         <Nav />
-        <UserInfo />
-        <BalanceStats />
-        <Anouncements />
-        <Activities token={cookies.get("login")} />
-        <Project token={cookies.get("login")} />
+        <div className="container-sbr">
+          <div className="flex-container">
+            <Project />
+            <Activities token={cookies.get("auth_token")} />
+          </div>
+        </div>
       </Dash>
+      {/* <UserInfo /> */}
+      {/* <BalanceStats /> */}
+      {/* <Anouncements /> */}
+      {/* <Activities token={cookies.get("login")} /> */}
+      {/* <Project token={cookies.get("auth_token")} /> */}
     </Router>
   );
 };
