@@ -28,18 +28,11 @@ const Dashboard = () => {
       <Dash>
         <Sidebar />
         <Nav />
-        <div className="container-sbr">
-          <div className="flex-container">
-            <Project />
-            <Activities token={cookies.get("auth_token")} />
-          </div>
+        <div className="balance_container">
+          <BalanceStats />
         </div>
+        <div className="activities_container"></div>
       </Dash>
-      {/* <UserInfo /> */}
-      {/* <BalanceStats /> */}
-      {/* <Anouncements /> */}
-      {/* <Activities token={cookies.get("login")} /> */}
-      {/* <Project token={cookies.get("auth_token")} /> */}
     </Router>
   );
 };
