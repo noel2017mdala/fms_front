@@ -8,8 +8,6 @@ const Announcements = () => {
         <h3>Notifications</h3>
       </div>
       <div className="announcements">
-        {/* <h3> Notification Center</h3> */}
-        <img src={meghaphone} alt="megaphone" />
         <h3> No Notifications made</h3>
       </div>
     </Notifications>

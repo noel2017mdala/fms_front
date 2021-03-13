@@ -30,6 +30,7 @@ const Dashboard = () => {
         <Nav />
         <div className="balance_container">
           <BalanceStats />
+          <Anouncements />
         </div>
         <div className="activities_container"></div>
       </Dash>

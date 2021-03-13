@@ -16,10 +16,12 @@ export const Dashboard = styled.div`
   .balance_container {
     grid-area: balanceStat;
     display: flex;
+    height: 100%;
   }
 
   .activities_container {
     grid-area: Activities;
     display: flex;
+    // background-color: red;
   }
 `;
