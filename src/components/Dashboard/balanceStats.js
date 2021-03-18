@@ -57,10 +57,17 @@ const BalanceStats = () => {
         options={{
           maintainAspectRatio: false,
           scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0)",
+                },
+              },
+            ],
             yAxes: [
               {
-                ticks: {
-                  beginAtZero: true,
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0)",
                 },
               },
             ],

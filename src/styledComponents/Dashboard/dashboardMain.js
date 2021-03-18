@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 export const Dashboard = styled.div`
   display: grid;
-  height: 100vh;
+  height: 140vh;
   grid-template-columns: 0.05fr 1fr;
-  grid-template-rows: 0.2fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr 1fr;
   grid-template-areas:
     "sidebar nav"
     "sidebar  balanceStat"
@@ -20,6 +20,7 @@ export const Dashboard = styled.div`
   }
 
   .activities_container {
+    margin-top: 2em;
     grid-area: Activities;
     display: flex;
     // background-color: red;

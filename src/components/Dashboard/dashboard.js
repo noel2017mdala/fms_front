@@ -6,7 +6,7 @@ import Project from "./Projects";
 import Sidebar from "./sideBar";
 import UserInfo from "./userInfo";
 import BalanceStats from "./balanceStats";
-import Anouncements from "./Announcements";
+import Announcements from "./Announcements";
 import Nav from "./Nav";
 import { Dashboard as Dash } from "../../styledComponents/Dashboard/dashboardMain";
 
@@ -30,9 +30,12 @@ const Dashboard = () => {
         <Nav />
         <div className="balance_container">
           <BalanceStats />
-          <Anouncements />
+          <Announcements />
         </div>
-        <div className="activities_container"></div>
+        <div className="activities_container">
+          <Activities />
+          <Project />
+        </div>
       </Dash>
     </Router>
   );

@@ -3,6 +3,7 @@ import LoginAuth from "./reducers/Login/LoginAuth";
 import Project from "./reducers/dashboard/projectsReducer";
 import Balance from "./reducers/dashboard/balanceStatsReducer";
 import getTransaction from "./reducers/dashboard/getBalancetransaction";
+import getActivities from "./reducers/dashboard/activities";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   Project,
   userBalance: Balance,
   getTransaction,
+  getActivities,
 });
 
 export default rootReducer;
