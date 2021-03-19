@@ -1,6 +1,7 @@
 import common from "../../../classes/componentClass";
 export const allActivities = (e) => {
-  let url = `http://127.0.0.1:8000/api/transaction/all/${e.id}`;
+  const { id } = e.id[0];
+  let url = `http://127.0.0.1:8000/api/transaction/all/${id}`;
   const headers = new Headers({
     Accept: "application/json",
     "Content-Type": "application/json",

@@ -21,7 +21,7 @@ const Sidebar = () => {
   });
 
   return (
-    <SideNav>
+    <SideNav className="side_bar">
       <ImageNav>
         <img src={avatar} alt="avatar" />
       </ImageNav>

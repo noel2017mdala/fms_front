@@ -9,14 +9,14 @@ const Activities = (props) => {
   //user tokens
   const cookies = new Cookies();
   let getToken = cookies.get("auth_token");
-  let getUserInfo = cookies.get("user_info")[0];
+  let getUserInfo = cookies.get("user_info");
 
   //dispatch function
   const dispatch = useDispatch();
 
   const userData = {
     token: getToken,
-    id: getUserInfo.id,
+    id: getUserInfo,
   };
 
   const [state, setState] = useState({

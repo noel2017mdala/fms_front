@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import Activities from "./Activities";
@@ -7,26 +8,38 @@ import Sidebar from "./sideBar";
 import UserInfo from "./userInfo";
 import BalanceStats from "./balanceStats";
 import Announcements from "./Announcements";
+import DashboardSideBar from "./dashboardSidebar";
 import Nav from "./Nav";
 import { Dashboard as Dash } from "../../styledComponents/Dashboard/dashboardMain";
 
-// const style = {
-//   display: "inline",
-//   float: "left",
-//   margin: "10px",
-// };
-
 const Dashboard = () => {
+  const select = useSelector((e) => {
+    return e.ToggleSidebar;
+  });
+
+  const dispatch = useDispatch();
   const history = useHistory();
   const cookies = new Cookies();
 
   return (
     <Router>
-      {!cookies.get("auth_token") && !cookies.get("user_info")
+      {/* {!cookies.get("auth_token") && !cookies.get("user_info")
         ? history.push("/")
-        : ""}
+        : ""} */}
       <Dash>
+        <Nav />
         <Sidebar />
+        {select ? <DashboardSideBar className="sidebarMenu" /> : null}
+        <div className="grid_container"></div>
+      </Dash>
+    </Router>
+  );
+};
+
+export default Dashboard;
+
+/*
+<Sidebar />
         <Nav />
         <div className="balance_container">
           <BalanceStats />
@@ -36,9 +49,4 @@ const Dashboard = () => {
           <Activities />
           <Project />
         </div>
-      </Dash>
-    </Router>
-  );
-};
-
-export default Dashboard;
+*/

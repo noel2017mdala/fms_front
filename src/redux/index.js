@@ -4,6 +4,7 @@ import Project from "./reducers/dashboard/projectsReducer";
 import Balance from "./reducers/dashboard/balanceStatsReducer";
 import getTransaction from "./reducers/dashboard/getBalancetransaction";
 import getActivities from "./reducers/dashboard/activities";
+import ToggleSidebar from "./reducers/dashboard/toggleSidebar";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   userBalance: Balance,
   getTransaction,
   getActivities,
+  ToggleSidebar,
 });
 
 export default rootReducer;
