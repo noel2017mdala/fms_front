@@ -28,11 +28,6 @@ const BalanceStats = () => {
   let prevAmount = [];
   return (
     <Statistics>
-      <p>
-        {select.userBalance.map((e) => {
-          return `Current Balance K ${e.Amount}`;
-        })}
-      </p>
       {!select.getTransaction.amount_transaction
         ? ""
         : select.getTransaction.amount_transaction.map((e) => {
@@ -40,40 +35,48 @@ const BalanceStats = () => {
             prevAmount.push(e.prev_Amount);
             days.push(e.date_value);
           })}
-      <Line
-        data={{
-          labels: [...days],
-          datasets: [
-            {
-              label: "Transaction",
-              data: [...prevAmount],
-              backgroundColor: ["rgba(102, 163, 255, 0.6)"],
-              borderWidth: 1,
+      <div className="chartContainer">
+        <p>
+          {select.userBalance.map((e) => {
+            return `Current Balance K ${e.Amount}`;
+          })}
+        </p>
+        <Line
+          data={{
+            labels: [...days],
+            datasets: [
+              {
+                label: "Transaction",
+                data: [...prevAmount],
+                backgroundColor: ["rgba(102, 163, 255, 0.6)"],
+                borderWidth: 1,
+              },
+            ],
+          }}
+          height={100}
+          width={200}
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              xAxes: [
+                {
+                  gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                  },
+                },
+              ],
             },
-          ],
-        }}
-        height={100}
-        width={200}
-        options={{
-          maintainAspectRatio: false,
-          scales: {
-            xAxes: [
-              {
-                gridLines: {
-                  color: "rgba(0, 0, 0, 0)",
-                },
-              },
-            ],
-            yAxes: [
-              {
-                gridLines: {
-                  color: "rgba(0, 0, 0, 0)",
-                },
-              },
-            ],
-          },
-        }}
-      />
+          }}
+        />
+      </div>
 
       {/* <button
         onClick={() => {

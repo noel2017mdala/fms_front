@@ -23,14 +23,18 @@ const Dashboard = () => {
 
   return (
     <Router>
-      {/* {!cookies.get("auth_token") && !cookies.get("user_info")
+      {!cookies.get("auth_token") && !cookies.get("user_info")
         ? history.push("/")
-        : ""} */}
+        : ""}
       <Dash>
         <Nav />
         <Sidebar />
-        {select ? <DashboardSideBar className="sidebarMenu" /> : null}
-        <div className="grid_container"></div>
+        {select ? <DashboardSideBar /> : null}
+        <div className="grid_container">
+          <BalanceStats />
+          <Announcements />
+          <Activities />
+        </div>
       </Dash>
     </Router>
   );

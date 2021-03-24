@@ -5,6 +5,12 @@ const getActivities = (state = activities, action) => {
     case "GET_ACTIVITIES":
       state = action.payLoad;
       return state;
+    case "FETCH_EARNINGS":
+      state = action.payLoad;
+      return state;
+    case "FETCH_EXPENSES":
+      state = action.payLoad;
+      return state;
     default:
       return state;
   }

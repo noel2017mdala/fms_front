@@ -6,7 +6,7 @@ const DashboardSideBar = () => {
   const dispatch = useDispatch();
 
   return (
-    <DashSidebar>
+    <DashSidebar className="sidebarMenu">
       <div className="sidebar">
         <ul className="sidebar-container">
           <label
@@ -22,6 +22,9 @@ const DashboardSideBar = () => {
           </li>
           <li>
             <a href="/">Graphs</a>
+          </li>
+          <li>
+            <a href="/">Notifications</a>
           </li>
           <li>
             <a href="/">settings</a>

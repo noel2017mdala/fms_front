@@ -1,36 +1,45 @@
 import styled from "styled-components";
 // import { Link } from "react-router-dom";
-
+const media = {
+  mobile: `@media(max-width: 40em)`,
+  mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
+  tablet: `@media(min-width: 40em) and (max-width: 70em)`,
+};
 export const Activities = styled.div`
   background-color: white;
-  margin-left: 2em;
-  width: 50%;
-  flex: 2;
-  .top-bar > h3 {
-    text-align: center;
-    font-weight: normal;
-    margin-top: 1em;
-  }
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 2em;
+  width: 100%;
+  height: 50vh;
+  position: relative;
+
   .top-bar {
-    position: relative;
-    font-size: 1.2em;
+    margin-top: 2em;
+  }
+  h3 {
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+  ul {
+    list-style: none;
+    text-align: center;
+  }
+  ul > li {
+    display: inline-block;
+    margin: 0.9em;
+    padding-bottom: 0.6em;
   }
 
-  .top-bar > img {
+  img {
+    height: 1.9em;
     position: absolute;
-    right: 0;
-    height: 30px;
-    margin-right: 1em;
-    cursor: pointer;
+    right: 1em;
+    top: 1.5em;
   }
-  .top-bar > ul {
-    list-style: none;
-    margin-top: 1em;
-    text-align: center;
-  }
-  .top-bar > ul > li {
-    display: inline;
-    padding: 1em 2em;
-    cursor: pointer;
+  ${media.mobile_landscape} {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2em;
+    height: 60vh;
   }
 `;

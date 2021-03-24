@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import Cookies from "universal-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import { allActivities } from "../../redux/actions/dashboard/activities";
+import {
+  activitiesAction,
+  getEarnings as earningsData,
+  getExpenses as expenseData,
+} from "../../redux/actions/dashboard/activities";
 import icon from "../../images/more-512.webp";
 import { Activities as Activity } from "../../styledComponents/Dashboard/Activities";
-const Activities = (props) => {
+const Activities = () => {
   //user tokens
   const cookies = new Cookies();
   let getToken = cookies.get("auth_token");
@@ -32,9 +36,13 @@ const Activities = (props) => {
   };
 
   //call action when page has loaded
+  const select = useSelector((e) => {
+    return e;
+  });
+  // console.log(select.getActivities.transaction);
 
   useEffect(() => {
-    dispatch(allActivities(userData));
+    dispatch(activitiesAction(userData));
   }, [dispatch]);
 
   const getAllTransacrtions = () => {
@@ -44,7 +52,7 @@ const Activities = (props) => {
       Earnings: false,
       Expenses: false,
     }));
-    dispatch(allActivities(userData));
+    dispatch(activitiesAction(userData));
   };
 
   const getEarnings = () => {
@@ -54,7 +62,7 @@ const Activities = (props) => {
       Earnings: true,
       Expenses: false,
     }));
-    // dispatch(getEarningsData(userData));
+    dispatch(earningsData(userData));
   };
 
   const getExpenses = () => {
@@ -64,7 +72,7 @@ const Activities = (props) => {
       Earnings: false,
       Expenses: true,
     }));
-    // dispatch(Expences(userData));
+    dispatch(expenseData(userData));
   };
   return (
     <Activity>
@@ -99,7 +107,13 @@ const Activities = (props) => {
           </li>
         </ul>
       </div>
-      <div className="list"></div>
+      <div className="list">
+        {!select.getActivities.transaction
+          ? null
+          : select.getActivities.transaction.map((e) => (
+              <li key={e.id}>{e.transaction_name}</li>
+            ))}
+      </div>
     </Activity>
   );
 };
