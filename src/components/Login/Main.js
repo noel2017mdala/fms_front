@@ -90,10 +90,11 @@ const Main = () => {
                   ValidateInput(state);
                 }}
               >
-                Let's get started
                 {logInloder ? (
-                  <ClipLoader size="20px" css={Common.override} />
-                ) : null}
+                  <ClipLoader size="20px" css={Common.loader("white")} />
+                ) : (
+                  "Let's get started"
+                )}
               </button>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import Cookies from "universal-cookie";
+import common from "../../classes/componentClass";
 import { useDispatch, useSelector } from "react-redux";
 import {
   activitiesAction,
@@ -9,6 +10,7 @@ import {
 } from "../../redux/actions/dashboard/activities";
 import icon from "../../images/more-512.webp";
 import { Activities as Activity } from "../../styledComponents/Dashboard/Activities";
+import Options from "./options/TransactionOptions";
 const Activities = () => {
   //user tokens
   const cookies = new Cookies();
@@ -108,12 +110,19 @@ const Activities = () => {
         </ul>
       </div>
       <div className="list">
-        {!select.getActivities.transaction
-          ? null
-          : select.getActivities.transaction.map((e) => (
-              <li key={e.id}>{e.transaction_name}</li>
-            ))}
+        <ul>
+          {!select.getActivities.transaction ? (
+            <ClipLoader css={common.loader("black")} />
+          ) : (
+            select.getActivities.transaction.map((e) => (
+              <li key={e.id}>
+                {e.transaction_name} K{e.transaction_ammount}
+              </li>
+            ))
+          )}
+        </ul>
       </div>
+      <Options />
     </Activity>
   );
 };

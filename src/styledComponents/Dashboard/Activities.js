@@ -14,17 +14,20 @@ export const Activities = styled.div`
   position: relative;
 
   .top-bar {
-    margin-top: 2em;
+    // margin-top: 2em;
+    background: #008ae6;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
   }
   h3 {
     text-align: center;
     margin-bottom: 0.5em;
   }
-  ul {
+  .top-bar > ul {
     list-style: none;
     text-align: center;
   }
-  ul > li {
+  .top-bar > ul > li {
     display: inline-block;
     margin: 0.9em;
     padding-bottom: 0.6em;
@@ -33,9 +36,27 @@ export const Activities = styled.div`
   img {
     height: 1.9em;
     position: absolute;
-    right: 1em;
-    top: 1.5em;
+    right: 0.5em;
+    top: 1.1em;
   }
+
+  .list > ul {
+    list-style: none;
+    margin-top: 1em;
+  }
+
+  .list > ul > li {
+    // background-color: black;
+    color: black;
+    padding: 1.3em 0.4em;
+    margin: 0.9em 0.8em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: 0.5s ease;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
   ${media.mobile_landscape} {
     width: 90%;
     margin: 0 auto;

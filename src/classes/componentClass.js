@@ -2,11 +2,14 @@ import toast from "toasted-notes";
 import "toasted-notes/src/styles.css";
 
 const Common = {
-  override: `
-  display: block;
-  margin: 0 auto;
-  border-color: white;
-`,
+  loader(color = "white") {
+    return `
+    display: block;
+    margin: 0 auto;
+    border-color: ${color};
+  `;
+  },
+
   alertMsg(e) {
     let msg = e;
     toast.notify(msg, {
@@ -16,3 +19,11 @@ const Common = {
 };
 
 export default Common;
+
+/*
+    override: `
+  display: block;
+  margin: 0 auto;
+  border-color: white;
+`,
+*/

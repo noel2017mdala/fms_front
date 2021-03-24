@@ -6,15 +6,28 @@ export const Transaction = styled.div`
   background: #555;
   color: #fff;
   width: 50%;
-  height: 60%;
-  left: 10.5em;
-  top: 2em;
+  height: 40%;
+  right: 2.5em;
+  top: 1em;
+
+  :before {
+    position: absolute;
+    top: 10%;
+    right: -5px;
+    content: "";
+    width: 0;
+    height: 0;
+    margin: -10px -4px 0;
+    border-left: solid 1em #555;
+    border-bottom: solid 1em transparent;
+    border-top: solid 1em transparent;
+  }
   .contain ul {
     list-style: none;
   }
   .contain li {
-    padding: 10px 0px;
     margin: 1.5em 0em;
+    text-align: center;
     cursor: pointer;
   }
 `;
