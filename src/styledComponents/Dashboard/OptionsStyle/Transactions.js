@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Transaction = styled.div`
   position: absolute;
   border-radius: 5px 5px 0px 0px;
-  background: #555;
-  color: #fff;
+  background: white;
+  color: black;
   width: 50%;
-  height: 40%;
+  height: 50%;
   right: 2.5em;
   top: 1em;
 
@@ -18,7 +18,7 @@ export const Transaction = styled.div`
     width: 0;
     height: 0;
     margin: -10px -4px 0;
-    border-left: solid 1em #555;
+    border-left: solid 1em white;
     border-bottom: solid 1em transparent;
     border-top: solid 1em transparent;
   }

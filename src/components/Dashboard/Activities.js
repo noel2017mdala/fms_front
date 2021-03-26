@@ -9,6 +9,7 @@ import {
   getExpenses as expenseData,
 } from "../../redux/actions/dashboard/activities";
 import icon from "../../images/more-512.webp";
+import { ToggleOptions } from "../../redux/actions/dashboard/optionsAction";
 import { Activities as Activity } from "../../styledComponents/Dashboard/Activities";
 import Options from "./options/TransactionOptions";
 const Activities = () => {
@@ -34,14 +35,13 @@ const Activities = () => {
 
   //border css
   const stye = {
-    borderBottom: "2px solid black",
+    borderBottom: "2px solid white",
   };
 
   //call action when page has loaded
   const select = useSelector((e) => {
     return e;
   });
-  // console.log(select.getActivities.transaction);
 
   useEffect(() => {
     dispatch(activitiesAction(userData));
@@ -76,10 +76,17 @@ const Activities = () => {
     }));
     dispatch(expenseData(userData));
   };
+
   return (
     <Activity>
       <div className="top-bar">
-        <img src={icon} alt="options icon" />
+        <img
+          src={icon}
+          alt="options icon"
+          onClick={() => {
+            dispatch(ToggleOptions());
+          }}
+        />
         <h3>Recent Transactions</h3>
 
         <ul>
@@ -122,7 +129,8 @@ const Activities = () => {
           )}
         </ul>
       </div>
-      <Options />
+
+      {select.ToggleOptions.transactions ? <Options /> : ""}
     </Activity>
   );
 };

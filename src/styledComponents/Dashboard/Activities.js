@@ -10,7 +10,7 @@ export const Activities = styled.div`
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   margin-top: 2em;
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   position: relative;
 
   .top-bar {
@@ -19,9 +19,11 @@ export const Activities = styled.div`
     border-radius: 10px 10px 0px 0px;
     color: white;
   }
-  h3 {
+  .top-bar > h3 {
     text-align: center;
     margin-bottom: 0.5em;
+    text-transform: uppercase;
+    padding-top: 2em;
   }
   .top-bar > ul {
     list-style: none;
