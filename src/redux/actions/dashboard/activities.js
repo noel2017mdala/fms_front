@@ -84,3 +84,41 @@ export const getExpenses = (e) => {
     }
   };
 };
+
+export const createTransaction = (e, token) => {
+  let url = "http://127.0.0.1:8000/api/createtransaction";
+  const headers = new Headers({
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  });
+  const request = new Request(url, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(e),
+  });
+
+  return async (dispatch) => {
+    try {
+      const response = await fetch(request);
+      const resData = await response.json();
+      if (resData["state"]) {
+        common.alertMsg("transaction created successfully", {
+          duration: 5000,
+        });
+        return true;
+
+        // dispatch({ type: "CREATE_TRANSACTION", payLoad: resData });
+      } else {
+        common.alertMsg(
+          "Please check you internet connection and try again later"
+        );
+      }
+    } catch {
+      common.alertMsg(
+        "Please check you internet connection and try again later"
+      );
+      // dispatch({ type: CREATE_TRANSACTION, payLoad: {} });
+    }
+  };
+};

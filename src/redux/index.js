@@ -6,6 +6,7 @@ import getTransaction from "./reducers/dashboard/getBalancetransaction";
 import getActivities from "./reducers/dashboard/activities";
 import ToggleSidebar from "./reducers/dashboard/toggleSidebar";
 import ToggleOptions from "./reducers/dashboard/optionsReducer";
+import modalReducer from "./reducers/dashboard/Modals/modalReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({

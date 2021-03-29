@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import transaction from "../../images/paymentpass.jpg";
 // import { Link } from "react-router-dom";
 const media = {
   mobile: `@media(max-width: 40em)`,
@@ -15,9 +16,14 @@ export const Activities = styled.div`
 
   .top-bar {
     // margin-top: 2em;
-    background: #008ae6;
+    // background: #008ae6;
     border-radius: 10px 10px 0px 0px;
     color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(${transaction});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .top-bar > h3 {
     text-align: center;
@@ -33,6 +39,7 @@ export const Activities = styled.div`
     display: inline-block;
     margin: 0.9em;
     padding-bottom: 0.6em;
+    font-size: 1.1em;
   }
 
   img {
