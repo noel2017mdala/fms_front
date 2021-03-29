@@ -81,6 +81,7 @@ const Activities = () => {
     <Activity>
       <div className="top-bar">
         <img
+          className="activities_image"
           src={icon}
           alt="options icon"
           onClick={() => {

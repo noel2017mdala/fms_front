@@ -7,6 +7,7 @@ import getActivities from "./reducers/dashboard/activities";
 import ToggleSidebar from "./reducers/dashboard/toggleSidebar";
 import ToggleOptions from "./reducers/dashboard/optionsReducer";
 import modalReducer from "./reducers/dashboard/Modals/modalReducer";
+import ListActivities from "./reducers/dashboard/listActivities";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   getActivities,
   ToggleSidebar,
   ToggleOptions,
+  ListActivities,
 });
 
 export default rootReducer;

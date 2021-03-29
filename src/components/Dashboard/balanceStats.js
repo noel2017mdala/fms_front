@@ -38,7 +38,7 @@ const BalanceStats = () => {
       <div className="chartContainer">
         <p>
           {select.userBalance.map((e) => {
-            return `Current Balance K ${e.Amount}`;
+            return `Current Balance K ${e.Amount.toLocaleString()}`;
           })}
         </p>
         <Line

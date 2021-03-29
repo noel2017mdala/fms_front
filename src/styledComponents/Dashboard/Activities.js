@@ -42,7 +42,7 @@ export const Activities = styled.div`
     font-size: 1.1em;
   }
 
-  img {
+  .activities_image {
     height: 1.9em;
     position: absolute;
     right: 0.5em;

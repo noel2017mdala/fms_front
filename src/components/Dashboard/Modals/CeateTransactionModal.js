@@ -74,11 +74,16 @@ const CreateTransaction = ({ state, setState }) => {
         // re-render components
         let getUserInfo = cookies.get("user_info")[0];
         let getToken = cookies.get("auth_token");
+
         dispatch(getBalance(getUserInfo, getToken));
         dispatch(getAmount(getUserInfo, getToken));
-        // dispatch(
-        //   activitiesAction(cookies.get("auth_token"), cookies.get("user_info"))
-        // );
+
+        dispatch(
+          activitiesAction({
+            token: getToken,
+            id: [getUserInfo],
+          })
+        );
       }
       // setTimeout(toggleModal, 2000);
     }

@@ -13,6 +13,7 @@ export const Dashboard = styled.div`
     "sidebar nav"
     "sidebar container";
   grid-gap: 0.6rem;
+  // background-color: #eee;
 
   .hubBurger {
     display: none;

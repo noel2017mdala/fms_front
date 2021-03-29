@@ -1,102 +1,95 @@
 import styled from "styled-components";
 
-export const Background = styled.div`
-width: 100%
-height: 100%;
-background: rgba(0, 0, 0, 0.8);
-position: absolute;
-left: -20em;
-top: -15em;
-display: flex;
-justify-content: center;
-border-radius: 10px;
-align-items: center;
-`;
-
-export const ModalWrapper = styled.div`
-  width: 800px;
-  height: 500px;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #000;
-  display: grid;
-  grid-template-columns: 1fr;
+export const Container = styled.div`
+  // background-color: red;
+  color: black;
   position: relative;
-  z-index: 10;
-  border-radius: 10px;
-`;
 
-export const ModalCotent = styled.div`
-  display: flex;
-  flex-direction: column;
-  // justify-content: center;
-  align-items: center;
-  line-height: 1.8;
-  color: #141414;
-  overflow: auto;
-
-  ::-webkit-scrollbar {
-    width: 8px;
-    background-color: #f5f5f5;
-  }
-
-  ::-webkit-scrollbar-thumb {
+  .modalItems {
+    position: absolute;
+    width: 100vw;
+    height: 60vh;
+    left: calc(-59vw + 40%);
+    top: -7.9em;
+    background: white;
+    color: #000;
+    z-index: 10;
     border-radius: 10px;
-    background-color: #141414;
-    background-image: -webkit-linear-gradient(
-      90deg,
-      transparent,
-      rgba(0, 0, 0, 0.4) 50%,
-      transparent,
-      transparent
-    );
+    overflow: auto;
+
+    ::-webkit-scrollbar {
+      width: 3px;
+      background-color: #f5f5f5;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #141414;
+      background-image: -webkit-linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent,
+        transparent
+      );
+    }
+  }
+  .header_container {
+    position: -webkit-sticky; /* Safari & IE */
+    position: sticky;
+    top: -1.3em;
+    background-color: white;
+    padding: 0.5em;
+    border-radius: 0.5em;
   }
 
-  .listContent {
-    margin: 1em;
+  .header_container > .closeModal {
+    position: absolute;
+    right: 0.5em;
+    top: 1em;
+    font-size: 2em;
   }
-
-  .listContent h3 {
+  .header_container > .header {
     text-align: center;
+    font-size: 1.5em;
+    margin: 1.2em 0;
   }
 
-  .transactionlist ul {
+  .items {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    line-height: 1.8;
+    color: #141414;
+  }
+  .transaction_list {
+    width: 100%;
+  }
+  .transaction_list > ul {
     list-style: none;
   }
 
-  .transactionlist li {
+  .transaction_list > ul li {
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 5px;
+    margin: 0.8em;
+    font-size: 0.9em;
     text-align: center;
     // cursor: pointer;
   }
-  .transactionlist li span {
-    padding: 10px;
+
+  .transaction_list > ul li > span {
+    margin: 0 0.4em;
   }
-  .transactionlist li:hover {
+
+  .transaction_list > ul > li:hover {
     transform: scale(1.0025);
     box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.2);
   }
-
-  .transactionlist li img {
+  li > .listTransactionModal_btn {
     width: 20px;
     float: right;
     cursor: pointer;
   }
-  .transactionlist li img {
-    transform: scale(1.0025);
-  }
-`;
-
-export const CloseModal = styled.div`
-  cursor: pointer;
-  position: absolute;
-  font-size: 2.5em;
-  top: 20px;
-  right: 25px;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  z-index: 10;
 `;
