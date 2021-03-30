@@ -54,6 +54,10 @@ export const Activities = styled.div`
     margin-top: 1em;
   }
 
+  .list h3 {
+    text-align: center;
+  }
+
   .list > ul > li {
     // background-color: black;
     color: black;

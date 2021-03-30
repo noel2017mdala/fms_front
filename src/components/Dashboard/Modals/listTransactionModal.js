@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useDispatch, useSelector } from "react-redux";
-import { allActivities } from "../../../redux/actions/dashboard/activities";
+import {
+  allActivities,
+  activitiesAction,
+} from "../../../redux/actions/dashboard/activities";
+import {
+  getAmount,
+  getBalance,
+} from "../../../redux/actions/dashboard/balanceStat";
 import Cookies from "universal-cookie";
 import Bin from "../../../images/bin.png";
 import DeleteModal from "./DeleteModal";
 import { Container } from "../../../styledComponents/Dashboard/Modals/listTransactionsModal";
-import { deleteActivity as Delete } from "../../../redux/actions/actionCreator";
+import { deleteActivity as Delete } from "../../../redux/actions/dashboard/activities";
 import common from "../../../classes/componentClass";
 const ListTransactions = ({ state, setState }) => {
   const cookie = new Cookies();
@@ -32,11 +39,25 @@ const ListTransactions = ({ state, setState }) => {
   }, [dispatch]);
 
   const deleteActivity = (data) => {
-    showModal((prevstate) => ({
-      ...prevstate,
-      showDeleteModal: !modalState.showDeleteModal,
-      id: data,
-    }));
+    const checkDeleted = dispatch(
+      Delete({
+        ...modalState,
+        id: data,
+      })
+    );
+    if (checkDeleted) {
+      //re-render components
+      dispatch(allActivities(userData));
+      dispatch(getBalance(userInfo[0], token));
+      dispatch(getAmount(userInfo[0], token));
+
+      dispatch(
+        activitiesAction({
+          token: token,
+          id: [userInfo[0]],
+        })
+      );
+    }
   };
 
   const getDate = (e) => {
@@ -89,7 +110,7 @@ const ListTransactions = ({ state, setState }) => {
                           alt="Bin"
                           onClick={() => {
                             // console.log(e.id);
-                            deleteActivity(e.id);
+                            deleteActivity(e.id, userData);
                           }}
                         />
                       </li>
@@ -100,6 +121,13 @@ const ListTransactions = ({ state, setState }) => {
             </div>
           </div>
         </div>
+        {modalState.showDeleteModal ? (
+          <DeleteModal
+            params={modalState}
+            showModal={showModal}
+            action={Delete}
+          />
+        ) : null}
       </Container>
     </div>
   );

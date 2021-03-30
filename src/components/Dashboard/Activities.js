@@ -121,6 +121,8 @@ const Activities = () => {
         <ul>
           {!select.getActivities.transaction ? (
             <ClipLoader css={common.loader("black")} />
+          ) : select.getActivities.transaction.length < 1 ? (
+            <h3>No activities found</h3>
           ) : (
             select.getActivities.transaction.map((e) => (
               <li key={e.id}>

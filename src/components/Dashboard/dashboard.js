@@ -34,6 +34,7 @@ const Dashboard = () => {
           <BalanceStats />
           <Announcements />
           <Activities />
+          <Project />
         </div>
       </Dash>
     </Router>

@@ -10,10 +10,10 @@ const Common = {
   `;
   },
 
-  alertMsg(e) {
+  alertMsg(e, duration = 50000) {
     let msg = e;
     toast.notify(msg, {
-      duration: 5000,
+      duration: duration,
     });
   },
 };

@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: absolute;
-  background-color: red;
-  top: 0em;
+  background: white;
+  top: 8em;
   right: 11.5em;
   width: 50%;
   height: 40%;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 1;
 
   .warning {
     color: #141414;
