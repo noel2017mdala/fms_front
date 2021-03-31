@@ -4,12 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { createproject } from "../../../redux/actions/actionCreator";
 import toast from "toasted-notes";
 import Cookies from "universal-cookie";
-import {
-  Background,
-  ModalWrapper,
-  ModalCotent,
-  CloseModal,
-} from "../../../styledComponents/Dashboard/Modals/createProjectsModal";
+import { Background } from "../../../styledComponents/Dashboard/Modals/createProjectsModal";
+import Common from "../../../classes/componentClass";
 
 const CreateProject = (props) => {
   //project options state to close and open the create project modal
@@ -38,89 +34,85 @@ const CreateProject = (props) => {
   //validates user data before submitting to the server
   const validate = () => {
     if (uiState.project_name === "" && uiState.project_alias === "") {
-      toast.notify("project name and project alias cannot be empty", {
-        duration: 5000,
-      });
+      Common.alertMsg("project name and project alias cannot be empty", 5000);
     } else if (uiState.project_name === "" || uiState.project_alias === "") {
-      toast.notify("Please enter the project name and alias", {
-        duration: 5000,
-      });
+      toast.notify("Please enter the project name and alias", 5000);
     } else {
       let req = {
-        token: cookie.get("login"),
-        id: cookie.get("user info")[0].id,
+        token: cookie.get("auth_token"),
+        id: cookie.get("user_info")[0].id,
         userinput: uiState,
       };
       dispatch(createproject(req));
       // console.log(req);
     }
   };
-  console.log(select);
+  // console.log(select);
   return (
-    <div>
-      <Background>
-        <ModalWrapper>
-          <ModalCotent>
-            <h1 className="header">Create Projects</h1>
-            <div className="uservalue">
-              <form>
-                <label>Project name</label>
-                <input
-                  type="text"
-                  name="projects_name"
-                  placeholder="project name"
-                  onChange={(e) => {
-                    setUi((prevState) => ({
-                      ...prevState,
-                      project_name: e.target.value,
-                    }));
-                  }}
-                />
-                <label>Alias name</label>
-                <input
-                  type="text"
-                  name="alias_name"
-                  placeholder="Alias name"
-                  onChange={(e) => {
-                    setUi((prevState) => ({
-                      ...prevState,
-                      project_alias: e.target.value,
-                    }));
-                  }}
-                />
-                <div className="buttons">
-                  <button
-                    className="create"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      validate();
-                    }}
-                  >
-                    Create Project
-                  </button>
-                  <button
-                    className="cancel"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      closeModal();
-                    }}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </form>
-            </div>
-          </ModalCotent>
-          <CloseModal
-            onClick={() => {
+    <Background>
+      <div className="projectsWrapper">
+        <div className="projectsContent">
+          <div
+            className="closeModal"
+            onClick={(e) => {
+              e.preventDefault();
               closeModal();
             }}
           >
             &times;
-          </CloseModal>
-        </ModalWrapper>
-      </Background>
-    </div>
+          </div>
+          <h1 className="header">Create Projects</h1>
+          <div className="values">
+            <form className="formData">
+              <label>Project name</label>
+              <input
+                type="text"
+                name="projects_name"
+                placeholder="project name"
+                onChange={(e) => {
+                  setUi((prevState) => ({
+                    ...prevState,
+                    project_name: e.target.value,
+                  }));
+                }}
+              />
+              <label>Alias name</label>
+              <input
+                type="text"
+                name="alias_name"
+                placeholder="Alias name"
+                onChange={(e) => {
+                  setUi((prevState) => ({
+                    ...prevState,
+                    project_alias: e.target.value,
+                  }));
+                }}
+              />
+              <div className="buttons">
+                <button
+                  className="create"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    validate();
+                  }}
+                >
+                  Create Project
+                </button>
+                <button
+                  className="cancel"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    closeModal();
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </Background>
   );
 };
 

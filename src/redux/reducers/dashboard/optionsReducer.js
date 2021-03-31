@@ -11,6 +11,12 @@ const ToggleOptions = (state = optionsState, action) => {
         projects: false,
       };
       return state;
+    case "PROJECTS_OPTIONS":
+      state = {
+        transactions: false,
+        projects: !state.projects,
+      };
+      return state;
     default:
       return state;
   }

@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Transaction = styled.div`
   position: absolute;
-  border-radius: 5px 5px 0px 0px;
-  background: white;
+  border-radius: 5px;
+  background: #454545;
   color: black;
   width: 50%;
   height: 50%;
@@ -18,7 +18,7 @@ export const Transaction = styled.div`
     width: 0;
     height: 0;
     margin: -10px -4px 0;
-    border-left: solid 1em white;
+    border-left: solid 1em #454545;
     border-bottom: solid 1em transparent;
     border-top: solid 1em transparent;
   }
@@ -29,5 +29,7 @@ export const Transaction = styled.div`
     margin: 1.5em 0em;
     text-align: center;
     cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
   }
 `;

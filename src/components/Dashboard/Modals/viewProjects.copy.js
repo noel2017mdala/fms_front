@@ -18,8 +18,8 @@ import DeleteModal from "./DeleteModal";
 const ViewProjects = (props) => {
   // user informatin stored in cookies
   const cookie = new Cookies();
-  let userInfo = cookie.get("user info");
-  let userData = { token: cookie.get("login"), id: userInfo[0].id };
+  let userInfo = cookie.get("user_info");
+  let userData = { token: cookie.get("auth_token"), id: userInfo[0].id };
 
   // Action dispatcher function
   const dispatch = useDispatch();

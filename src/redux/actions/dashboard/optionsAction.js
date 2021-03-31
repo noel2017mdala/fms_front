@@ -3,3 +3,9 @@ export const ToggleOptions = () => {
     type: "OPTIONS",
   };
 };
+
+export const ToggleProjects = () => {
+  return {
+    type: "PROJECTS_OPTIONS",
+  };
+};

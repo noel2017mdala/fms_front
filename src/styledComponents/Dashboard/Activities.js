@@ -40,6 +40,7 @@ export const Activities = styled.div`
     margin: 0.9em;
     padding-bottom: 0.6em;
     font-size: 1.1em;
+    cursor: pointer;
   }
 
   .activities_image {

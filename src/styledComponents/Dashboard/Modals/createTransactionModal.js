@@ -4,6 +4,7 @@ export const Container = styled.div`
   //background-color: red;
   color: black;
   position: relative;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 
   .modalWrapper {
   }

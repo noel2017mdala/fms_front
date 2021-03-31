@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Background,
-  ModalWrapper,
-  ModalCotent,
-  CloseModal,
-} from "../../../styledComponents/Dashboard/Modals/viewProjectsModal";
-import {
-  deleteProject,
-  viewprojects,
-} from "../../../redux/actions/actionCreator";
+import { Background } from "../../../styledComponents/Dashboard/Modals/viewProjectsModal";
+import { ListProjects } from "../../../redux/actions/dashboard/projectAction";
 import Cookies from "universal-cookie";
 import Bin from "../../../images/bin.png";
 import DeleteModal from "./DeleteModal";
@@ -18,8 +10,8 @@ import DeleteModal from "./DeleteModal";
 const ViewProjects = (props) => {
   // user informatin stored in cookies
   const cookie = new Cookies();
-  let userInfo = cookie.get("user info");
-  let userData = { token: cookie.get("login"), id: userInfo[0].id };
+  let userInfo = cookie.get("user_info");
+  let userData = { token: cookie.get("auth_token"), id: userInfo[0].id };
 
   // Action dispatcher function
   const dispatch = useDispatch();
@@ -37,7 +29,7 @@ const ViewProjects = (props) => {
 
   // dispatches the action when the component renders
   useEffect(() => {
-    dispatch(viewprojects(userData));
+    dispatch(ListProjects(userData));
   }, [dispatch]);
 
   // loader css overider
@@ -52,23 +44,35 @@ const ViewProjects = (props) => {
     let date = new Date(e);
     return date.toDateString();
   };
+
   return (
     <div>
       <Background>
-        <ModalWrapper>
-          <ModalCotent>
-            <div className="listProjects">
-              <h3>All Projects</h3>
-              {!select.projects ? (
+        <div className="listProjectsWrapper">
+          <div className="listProjects_header">
+            <h3>All Projects</h3>
+            <div
+              className="closeModal"
+              onClick={(e) => {
+                e.preventDefault();
+                props.setState((prevState) => ({
+                  ...prevState,
+                  viewProjects: false,
+                }));
+              }}
+            >
+              &times;
+            </div>
+
+            <div className="items">
+              {!select.ListProjects ? (
                 <ClipLoader size="30px" css={override} />
-              ) : !select.projects.projects ? (
+              ) : !select.ListProjects.state ? (
                 <ClipLoader size="30px" css={override} />
-              ) : !select.projects.projects.projects ? (
-                <ClipLoader size="30px" css={override} />
-              ) : select.projects.projects.projects < 1 ? (
+              ) : select.ListProjects.projects < 1 ? (
                 <h3> No projects found</h3>
               ) : (
-                select.projects.projects.projects.map((e) => (
+                select.ListProjects.projects.map((e) => (
                   <div key={e.projects_id} className="project_list">
                     <ul>
                       <li>
@@ -91,25 +95,8 @@ const ViewProjects = (props) => {
                 ))
               )}
             </div>
-            {state.showDeleteModal ? (
-              <DeleteModal
-                params={state}
-                showModal={setState}
-                action={deleteProject}
-              />
-            ) : null}
-          </ModalCotent>
-          <CloseModal
-            onClick={() => {
-              props.setState((prevState) => ({
-                ...prevState,
-                viewProjects: false,
-              }));
-            }}
-          >
-            &times;
-          </CloseModal>
-        </ModalWrapper>
+          </div>
+        </div>
       </Background>
     </div>
   );

@@ -24,7 +24,7 @@ const Main = () => {
     }));
   };
   // redux initial state
-  const logInloder = useSelector((state) => state.login);
+  const loginLoader = useSelector((state) => state.login);
   const getAuthStatus = useSelector((status) => status);
 
   /*
@@ -90,7 +90,7 @@ const Main = () => {
                   ValidateInput(state);
                 }}
               >
-                {logInloder ? (
+                {loginLoader ? (
                   <ClipLoader size="20px" css={Common.loader("white")} />
                 ) : (
                   "Let's get started"

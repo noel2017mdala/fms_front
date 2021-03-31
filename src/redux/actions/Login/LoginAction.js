@@ -38,7 +38,7 @@ export const login = (e) => {
         cookies.set("user_info", resData["user_info"], {
           sameSite: "strict",
           path: "/",
-          expires: new Date(new Date().getTime() + 200000 * 1000),
+          expires: new Date(new Date().getTime() + 200000 * 100),
           // httpOnly: true,
           // secure: true,
         });
