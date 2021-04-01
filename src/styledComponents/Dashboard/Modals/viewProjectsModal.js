@@ -73,5 +73,15 @@ export const Background = styled.div`
     // cursor: pointer;
   }
 
+  .delete_project {
+    width: 20px;
+    float: right;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .delete_project:hover{
+    transform: scale(1.1);
+  }
+
   }
 `;

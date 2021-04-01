@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createTransaction } from "../../../redux/actions/dashboard/activities";
 import {
   getAmount,
@@ -20,7 +20,7 @@ const CreateTransaction = ({ state, setState }) => {
 
   /*
   internal state
-  for handling user submitted value
+  for handling user submitted value 🔥 
   */
   const [userValue, getValue] = useState({
     transaction_name: "",

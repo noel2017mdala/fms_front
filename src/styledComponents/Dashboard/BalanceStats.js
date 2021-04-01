@@ -3,9 +3,10 @@ import styled from "styled-components";
 const media = {
   tablet: `@media(min-width: 40em) and (max-width: 70em)`,
   mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
-  bigScreen: `(min-width: 50em)`,
+  bigScreen: `@media (min-width: 50em)`,
 };
 export const BalanceStats = styled.div`
+  background-color: white;
   // .chartContainer {
   //   height: 50vh;
   //   margin: 2em;
@@ -14,7 +15,7 @@ export const BalanceStats = styled.div`
   //   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   // }
 
-  margin-top: 0;
+  margin-top: 1em;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   .chartContainer {
     height: 40vh;
@@ -28,12 +29,18 @@ export const BalanceStats = styled.div`
   }
 
   ${media.mobile_landscape} {
-    width: 90%;
+    width: 75%;
     margin: 0 auto;
     margin-top: 2em;
 
     .chartContainer {
       height: 60vh;
     }
+  }
+
+  ${media.bigScreen} {
+    height: 50vh;
+    width: 50%;
+    margin: 1em;
   }
 `;

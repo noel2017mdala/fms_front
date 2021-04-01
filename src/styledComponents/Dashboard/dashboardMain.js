@@ -2,16 +2,18 @@ import styled from "styled-components";
 // import { Link } from "react-router-dom";
 const media = {
   mobile: `@media(max-width: 40em)`,
-  tablet: `@media(min-width: 40em) and (max-width: 70em)`,
+  tablet: `@media(min-width: 40em) and (max-width: 120em)`,
+  bigScreen: `@media (min-width: 50em)`,
 };
 export const Dashboard = styled.div`
+  background-color: #eee;
   display: grid;
-  height: 100vh;
   grid-template-columns: 0.05fr 1fr;
   grid-template-rows: 0.1fr 1fr;
   grid-template-areas:
     "sidebar nav"
-    "sidebar container";
+    "sidebar container"
+    "sidebar  grid_Second_container";
   grid-gap: 0.6rem;
   // background-color: #eee;
 
@@ -24,6 +26,12 @@ export const Dashboard = styled.div`
   .grid_container {
     grid-area: container;
     display: flex;
+  }
+
+  .grid_Second_container {
+    grid-area: grid_Second_container;
+    display: flex;
+    // margin-left: 5em;
   }
 
   //mobile devices query
@@ -67,10 +75,16 @@ export const Dashboard = styled.div`
       display: flex;
       flex-direction: column;
     }
+
+    .grid_Second_container {
+      grid-area: grid_Second_container;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
-  ${media.tablet} {
-    grid-template-columns: 0.08fr 1fr;
-    grid-template-rows: 0.05fr 1fr;
-  }
+  // ${media.tablet} {
+  //   grid-template-columns: 0.05fr 1fr;
+  //   grid-template-rows: 0.05fr 1fr;
+  // }
 `;

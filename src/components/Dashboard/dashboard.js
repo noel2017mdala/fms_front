@@ -33,6 +33,8 @@ const Dashboard = () => {
         <div className="grid_container">
           <BalanceStats />
           <Announcements />
+        </div>
+        <div className="grid_Second_container">
           <Activities />
           <Project />
         </div>

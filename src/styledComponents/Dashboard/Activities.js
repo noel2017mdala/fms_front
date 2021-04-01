@@ -2,17 +2,18 @@ import styled from "styled-components";
 import transaction from "../../images/paymentpass.jpg";
 // import { Link } from "react-router-dom";
 const media = {
-  mobile: `@media(max-width: 40em)`,
   mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
   tablet: `@media(min-width: 40em) and (max-width: 70em)`,
+  bigScreen: `@media (min-width: 50em)`,
 };
 export const Activities = styled.div`
   background-color: white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   margin-top: 2em;
   width: 100%;
-  height: 60vh;
+  min-height: 60vh;
   position: relative;
+  padding-bottom: 1em;
 
   .top-bar {
     // margin-top: 2em;
@@ -72,9 +73,15 @@ export const Activities = styled.div`
   }
 
   ${media.mobile_landscape} {
-    width: 90%;
+    width: 75%;
     margin: 0 auto;
     margin-top: 2em;
-    height: 60vh;
+    min-height: 110vh;
+  }
+
+  ${media.bigScreen} {
+    // height: 50vh;
+    width: 35%;
+    margin: 1em 2em;
   }
 `;

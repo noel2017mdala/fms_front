@@ -2,24 +2,25 @@ import styled from "styled-components";
 //import { Link } from "react-router-dom";
 import transaction from "../../images/payment.jpg";
 const media = {
-  mobile: `@media(max-width: 40em)`,
+  bigScreen: `@media (min-width: 50em)`,
   mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
   tablet: `@media(min-width: 40em) and (max-width: 70em)`,
 };
 
 export const Projects = styled.div`
-  // background: white;
+  background: white;
   // flex: 1.5;
   // margin: 0 2em;
   // cursor: pointer;
   // text-align: center;
 
-  background-color: white;
+  // background-color: white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   margin-top: 4em;
   width: 100%;
-  height: 60vh;
+  min-height: 60vh;
   position: relative;
+  padding-bottom: 1em;
 
   .project_container {
     border-radius: 10px 10px 0px 0px;
@@ -44,5 +45,40 @@ export const Projects = styled.div`
     position: absolute;
     right: 0.5em;
     top: 1.1em;
+  }
+
+  .project_items ul {
+    list-style: none;
+    margin-top: 1em;
+  }
+
+  .project_items .info {
+    text-align: center;
+    margin-top: 2em;
+  }
+
+  .project_items > ul > li {
+    // background-color: black;
+    color: black;
+    padding: 1.3em 0.4em;
+    margin: 1em 0.8em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: 0.5s ease;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  ${media.mobile_landscape} {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2em;
+    min-height: 110vh;
+  }
+
+  ${media.bigScreen} {
+    height: 20vh;
+    width: 35%;
+    margin: 1em 2em;
   }
 `;

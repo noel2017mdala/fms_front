@@ -11,7 +11,6 @@ import {
 } from "../../../redux/actions/dashboard/balanceStat";
 import Cookies from "universal-cookie";
 import Bin from "../../../images/bin.png";
-import DeleteModal from "./DeleteModal";
 import { Container } from "../../../styledComponents/Dashboard/Modals/listTransactionsModal";
 import { deleteActivity as Delete } from "../../../redux/actions/dashboard/activities";
 import common from "../../../classes/componentClass";
@@ -28,7 +27,7 @@ const ListTransactions = ({ state, setState }) => {
     return e;
   });
 
-  const [modalState, showModal] = useState({
+  const [modalState] = useState({
     showDeleteModal: false,
     id: "",
     userData: userData,
@@ -121,13 +120,6 @@ const ListTransactions = ({ state, setState }) => {
             </div>
           </div>
         </div>
-        {modalState.showDeleteModal ? (
-          <DeleteModal
-            params={modalState}
-            showModal={showModal}
-            action={Delete}
-          />
-        ) : null}
       </Container>
     </div>
   );

@@ -48,7 +48,7 @@ export const login = (e) => {
         }
       } else {
         dispatch({ type: "END_SUBMIT", payLoad: resData });
-        Common.alertMsg("Username or password is incorrect");
+        Common.alertMsg("Username or Password is incorrect", 3000);
       }
     } catch (e) {
       /*

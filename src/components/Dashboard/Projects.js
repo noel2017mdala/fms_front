@@ -45,14 +45,14 @@ const Projects = (props) => {
       </div>
       <div className="project_items">
         {!select.Project ? (
-          <ClipLoader css={Common.loader("red")} size="30px" />
+          <ClipLoader css={Common.loader("black")} size="30px" />
         ) : !select.Project.projects ? (
-          <ClipLoader css={Common.loader("red")} size="30px" />
+          <ClipLoader css={Common.loader("black")} size="30px" />
         ) : select.Project.projects < 1 ? (
           <h3 className="info"> No recent projects found</h3>
         ) : (
           select.Project.projects.map((e) => (
-            <div key={e.projects_id}>
+            <div key={e.projects_id} className="project_items">
               <ul className="user_projects">
                 <li className="projectList">
                   {e.projects_name}

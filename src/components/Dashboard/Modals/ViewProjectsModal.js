@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useDispatch, useSelector } from "react-redux";
 import { Background } from "../../../styledComponents/Dashboard/Modals/viewProjectsModal";
-import { ListProjects } from "../../../redux/actions/dashboard/projectAction";
+import {
+  ListProjects,
+  deleteProject,
+  getProjects,
+} from "../../../redux/actions/dashboard/projectAction";
 import Cookies from "universal-cookie";
 import Bin from "../../../images/bin.png";
-import DeleteModal from "./DeleteModal";
 
 const ViewProjects = (props) => {
-  // user informatin stored in cookies
+  // user information stored in cookies
   const cookie = new Cookies();
   let userInfo = cookie.get("user_info");
   let userData = { token: cookie.get("auth_token"), id: userInfo[0].id };
@@ -22,10 +25,10 @@ const ViewProjects = (props) => {
   });
 
   //component state
-  const [state, setState] = useState({
-    showDeleteModal: false,
-    userData: userData,
-  });
+  // const [state, setState] = useState({
+  //   showDeleteModal: false,
+  //   userData: userData,
+  // });
 
   // dispatches the action when the component renders
   useEffect(() => {
@@ -81,12 +84,19 @@ const ViewProjects = (props) => {
                         <img
                           src={Bin}
                           alt="Bin"
+                          className="delete_project"
                           onClick={() => {
-                            setState((prevState) => ({
-                              ...prevState,
-                              showDeleteModal: !state.showDeleteModal,
-                              id: e.projects_id,
-                            }));
+                            let checkDeleted = dispatch(
+                              deleteProject({
+                                userId: userInfo[0].id,
+                                token: cookie.get("auth_token"),
+                                itemId: e.projects_id,
+                              })
+                            );
+                            if (checkDeleted) {
+                              dispatch(ListProjects(userData));
+                              dispatch(getProjects(cookie.get("auth_token")));
+                            }
                           }}
                         />
                       </li>

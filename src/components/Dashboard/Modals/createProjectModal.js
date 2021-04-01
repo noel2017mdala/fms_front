@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { useSpring, animated } from "react-spring";
 import { createproject } from "../../../redux/actions/actionCreator";
 import toast from "toasted-notes";
 import Cookies from "universal-cookie";
 import { Background } from "../../../styledComponents/Dashboard/Modals/createProjectsModal";
 import Common from "../../../classes/componentClass";
+import { getProjects } from "../../../redux/actions/dashboard/projectAction";
 
 const CreateProject = (props) => {
   //project options state to close and open the create project modal
@@ -18,11 +19,11 @@ const CreateProject = (props) => {
   //dispatch variable
   const dispatch = useDispatch();
 
-  //select funtion
+  //select function
 
-  const select = useSelector((e) => {
-    return e;
-  });
+  // const select = useSelector((e) => {
+  //   return e;
+  // });
 
   //user input state
   const [uiState, setUi] = useState({
@@ -43,7 +44,10 @@ const CreateProject = (props) => {
         id: cookie.get("user_info")[0].id,
         userinput: uiState,
       };
-      dispatch(createproject(req));
+      const addProject = dispatch(createproject(req));
+      if (addProject) {
+        dispatch(getProjects(cookie.get("auth_token")));
+      }
       // console.log(req);
     }
   };
