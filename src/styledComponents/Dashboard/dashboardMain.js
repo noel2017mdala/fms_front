@@ -2,8 +2,8 @@ import styled from "styled-components";
 // import { Link } from "react-router-dom";
 const media = {
   mobile: `@media(max-width: 40em)`,
-  tablet: `@media(min-width: 40em) and (max-width: 120em)`,
-  bigScreen: `@media (min-width: 50em)`,
+  tablet: `@media(min-width: 40em) and (max-width: 75em)`,
+  bigScreen: `@media (min-width: 75em)`,
 };
 export const Dashboard = styled.div`
   background-color: #eee;
@@ -83,8 +83,21 @@ export const Dashboard = styled.div`
     }
   }
 
-  // ${media.tablet} {
-  //   grid-template-columns: 0.05fr 1fr;
-  //   grid-template-rows: 0.05fr 1fr;
-  // }
+  ${media.tablet} {
+    .grid_container {
+      grid-area: container;
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+    }
+
+    .grid_Second_container {
+      grid-area: grid_Second_container;
+      display: flex;
+      flex-direction: row;
+    }
+
+    ${media.bigScreen} {
+    }
+  }
 `;

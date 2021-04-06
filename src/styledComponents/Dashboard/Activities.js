@@ -3,7 +3,7 @@ import transaction from "../../images/paymentpass.jpg";
 // import { Link } from "react-router-dom";
 const media = {
   mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
-  tablet: `@media(min-width: 40em) and (max-width: 70em)`,
+  tablet: `@media(min-width: 40em) and (max-width: 75em)`,
   bigScreen: `@media (min-width: 50em)`,
 };
 export const Activities = styled.div`
@@ -11,20 +11,20 @@ export const Activities = styled.div`
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   margin-top: 2em;
   width: 100%;
-  min-height: 60vh;
+  height: 60vh;
   position: relative;
   padding-bottom: 1em;
 
   .top-bar {
     // margin-top: 2em;
     // background: #008ae6;
-    border-radius: 10px 10px 0px 0px;
     color: white;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url(${transaction});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
   }
   .top-bar > h3 {
     text-align: center;
@@ -64,7 +64,7 @@ export const Activities = styled.div`
     // background-color: black;
     color: black;
     padding: 1.3em 0.4em;
-    margin: 0.9em 0.8em;
+    margin: 1.5em 0.8em;
     border-radius: 0.5em;
     cursor: pointer;
     transition: 0.5s ease;
@@ -72,16 +72,48 @@ export const Activities = styled.div`
     text-align: center;
   }
 
-  ${media.mobile_landscape} {
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 2em;
-    min-height: 110vh;
+  ${media.bigScreen} {
+    max-height: 89%;
+    width: 45%;
+    margin: 1em 2em;
+
+    .top-bar > h3 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    .top-bar > ul > li {
+      display: inline-block;
+      margin: 0.9em;
+      padding-bottom: 0.6em;
+      font-size: 1.4em;
+      cursor: pointer;
+    }
   }
 
-  ${media.bigScreen} {
-    // height: 50vh;
-    width: 35%;
-    margin: 1em 2em;
+  ${media.tablet} {
+    width: 50%;
+    margin: 1em;
+    max-height: 95%;
+
+    .top-bar > h3 {
+      text-align: center;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      //padding-top: 2em;
+      font-size: 1em;
+    }
+
+    .top-bar > ul {
+      list-style: none;
+      text-align: center;
+    }
+    .top-bar > ul > li {
+      display: inline-block;
+      margin: 0.5em;
+      padding-bottom: 0.6em;
+      font-size: 0.8em;
+      cursor: pointer;
+    }
   }
 `;

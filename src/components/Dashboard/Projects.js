@@ -56,7 +56,7 @@ const Projects = (props) => {
               <ul className="user_projects">
                 <li className="projectList">
                   {e.projects_name}
-                  <span>{getDate(e.date_created)}</span>
+                  {/* <span>{getDate(e.date_created)}</span> */}
                 </li>
               </ul>
             </div>

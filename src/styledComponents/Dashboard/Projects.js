@@ -18,12 +18,12 @@ export const Projects = styled.div`
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   margin-top: 4em;
   width: 100%;
-  min-height: 60vh;
+  height: 60vh;
   position: relative;
   padding-bottom: 1em;
 
   .project_container {
-    border-radius: 10px 10px 0px 0px;
+    //border-radius: 10px 10px 0px 0px;
     color: white;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url(${transaction});
@@ -69,16 +69,25 @@ export const Projects = styled.div`
     text-align: center;
   }
 
-  ${media.mobile_landscape} {
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 2em;
-    min-height: 110vh;
-  }
+  // ${media.mobile_landscape} {
+  //   width: 75%;
+  //   margin: 0 auto;
+  //   margin-top: 2em;
+  //   min-height: 110vh;
+  // }
 
   ${media.bigScreen} {
-    height: 20vh;
-    width: 35%;
+    max-height: 89%;
+    width: 45%;
     margin: 1em 2em;
+
+    .project_container h3 {
+    }
+  }
+
+  ${media.tablet} {
+    width: 50%;
+    margin: 1em;
+    max-height: 95%;
   }
 `;

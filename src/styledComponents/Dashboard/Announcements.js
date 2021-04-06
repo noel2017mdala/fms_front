@@ -3,7 +3,7 @@ import styled from "styled-components";
 const media = {
   bigScreen: `@media (min-width: 50em)`,
   mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
-  tablet: `@media(min-width: 40em) and (max-width: 70em)`,
+  tablet: `@media(min-width: 40em) and (max-width: 75em)`,
 };
 
 export const Announcements = styled.div`
@@ -16,16 +16,22 @@ export const Announcements = styled.div`
   margin-top: 1em;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 
-  ${media.mobile_landscape} {
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 2em;
-    height: 60vh;
-  }
+  // ${media.mobile_landscape} {
+  //   width: 75%;
+  //   margin: 0 auto;
+  //   margin-top: 2em;
+  //   height: 60vh;
+  // }
 
   ${media.bigScreen} {
     height: 50vh;
     width: 50%;
     margin: 1em 2em;
+  }
+
+  ${media.tablet} {
+    width: 50%;
+    height: 45vh;
+    margin: 1em;
   }
 `;

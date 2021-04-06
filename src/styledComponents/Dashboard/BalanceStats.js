@@ -1,9 +1,9 @@
 import styled from "styled-components";
 // import { Link } from "react-router-dom";
 const media = {
-  tablet: `@media(min-width: 40em) and (max-width: 70em)`,
+  tablet: `@media(min-width: 40em) and (max-width: 75em)`,
   mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
-  bigScreen: `@media (min-width: 50em)`,
+  bigScreen: `@media (min-width: 75em)`,
 };
 export const BalanceStats = styled.div`
   background-color: white;
@@ -22,25 +22,34 @@ export const BalanceStats = styled.div`
     margin-left: 0;
     margin-top: 1em;
     margin-bottom: 2em;
-    width: 100% !important;
+    width: 100%;
   }
   .chartContainer > p {
     text-align: center;
   }
 
-  ${media.mobile_landscape} {
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 2em;
+  // ${media.mobile_landscape} {
+  //   width: 75%;
+  //   margin: 0 auto;
+  //   margin-top: 2em;
 
-    .chartContainer {
-      height: 60vh;
-    }
-  }
+  //   .chartContainer {
+  //     height: 60vh;
+  //   }
+  // }
 
   ${media.bigScreen} {
-    height: 50vh;
+    // height: 50vh;
+    // width: 50%;
+    // margin: 1em;
+    // display: none;
+    margin: 1em 2em;
     width: 50%;
+  }
+
+  ${media.tablet} {
+    width: 50%;
+    height: 45vh;
     margin: 1em;
   }
 `;
