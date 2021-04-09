@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Transaction } from "../../../styledComponents/Dashboard/OptionsStyle/Transactions";
-import CreateTransaction from "../Modals/CeateTransactionModal";
+import CreateTransaction from "../Modals/CreateTransactionModal";
 import ListTransactions from "../Modals/listTransactionModal";
+import {
+  ToggleActivitiesModals,
+  OPEN_LIST_ActivitiesModals,
+} from "../../../redux/actions/dashboard/Modal";
 
 //Options  state lives here
 const TransactionOptions = (props) => {
+  const dispatch = useDispatch();
+
   const [state, setState] = useState({
     showModal: false,
     ListTransaction: false,
@@ -16,11 +23,7 @@ const TransactionOptions = (props) => {
    * closes the list transaction moldal
    */
   const showTransactionModal = () => {
-    setState((prevState) => ({
-      ...prevState,
-      showModal: true,
-      ListTransaction: false,
-    }));
+    dispatch(ToggleActivitiesModals());
   };
 
   /*
@@ -29,11 +32,7 @@ const TransactionOptions = (props) => {
    * closes the create transaction moldal
    */
   const ListTransactionModal = () => {
-    setState((prevState) => ({
-      ...prevState,
-      showModal: false,
-      ListTransaction: true,
-    }));
+    dispatch(OPEN_LIST_ActivitiesModals());
   };
 
   return (
@@ -56,15 +55,6 @@ const TransactionOptions = (props) => {
           </li>
         </ul>
       </div>
-      {!state.showModal ? (
-        ""
-      ) : (
-        <CreateTransaction state={state} setState={setState} />
-      )}
-
-      {!state.ListTransaction ? null : (
-        <ListTransactions state={state} setState={setState} />
-      )}
     </Transaction>
   );
 };

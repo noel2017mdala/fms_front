@@ -6,6 +6,7 @@ import {
   getBalance,
 } from "../../../redux/actions/dashboard/balanceStat";
 import { activitiesAction } from "../../../redux/actions/dashboard/activities";
+import { CloseActivitiesModals } from "../../../redux/actions/dashboard/Modal";
 import toast from "toasted-notes";
 import Cookies from "universal-cookie";
 
@@ -85,21 +86,21 @@ const CreateTransaction = ({ state, setState }) => {
           })
         );
       }
-      // setTimeout(toggleModal, 2000);
     }
   };
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        //dispatch(CloseActivitiesModals());
+      }}
+    >
       <div className="modalWrapper">
         <div className="modalContent">
           <div
             className="closeModal"
             onClick={(e) => {
               e.preventDefault();
-              setState((prevState) => ({
-                ...prevState,
-                showModal: false,
-              }));
+              dispatch(CloseActivitiesModals());
             }}
           >
             &times;
@@ -141,10 +142,7 @@ const CreateTransaction = ({ state, setState }) => {
                   className="cancel"
                   onClick={(e) => {
                     e.preventDefault();
-                    setState((prevState) => ({
-                      ...prevState,
-                      showModal: false,
-                    }));
+                    dispatch(CloseActivitiesModals());
                   }}
                 >
                   Cancel

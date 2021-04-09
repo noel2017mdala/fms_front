@@ -33,5 +33,6 @@ export const Announcements = styled.div`
     width: 50%;
     height: 45vh;
     margin: 1em;
+    margin-right: 2em;
   }
 `;

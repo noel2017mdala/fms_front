@@ -9,6 +9,7 @@ import {
   getAmount,
   getBalance,
 } from "../../../redux/actions/dashboard/balanceStat";
+import { CLOSE_LIST_ActivitiesModals } from "../../../redux/actions/dashboard/Modal";
 import Cookies from "universal-cookie";
 import Bin from "../../../images/bin.png";
 import { Container } from "../../../styledComponents/Dashboard/Modals/listTransactionsModal";
@@ -75,11 +76,7 @@ const ListTransactions = ({ state, setState }) => {
                 className="closeModal"
                 onClick={(e) => {
                   e.preventDefault();
-                  setState((prevState) => ({
-                    ...prevState,
-                    showModal: false,
-                    ListTransaction: false,
-                  }));
+                  dispatch(CLOSE_LIST_ActivitiesModals());
                 }}
               >
                 &times;

@@ -1,21 +1,34 @@
 import styled from "styled-components";
 
+const media = {
+  mobile: `@media(max-width: 40em)`,
+  tablet: `@media(min-width: 40em) and (max-width: 75em)`,
+  bigScreen: `@media (min-width: 75em)`,
+};
+
 export const Container = styled.div`
-  // background-color: red;
-  color: black;
-  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  height: 130vh;
+
+  .modalWrapper {
+    //background-color: black;
+    width: 100%;
+    min-height: 100vh;
+    transition: opacity 0.3s ease;
+  }
 
   .modalItems {
-    position: absolute;
-    width: 100vw;
-    height: 60vh;
-    left: calc(-59vw + 40%);
-    top: -7.9em;
-    background: white;
-    color: #000;
-    z-index: 10;
-    border-radius: 10px;
-    overflow: auto;
+    background-color: white;
+    margin: 5em auto;
+    width: 90%;
+    max-width: 100%;
+    min-height: 70vh;
+    height: 100%;
+    border-radius: 0.5em;
 
     ::-webkit-scrollbar {
       width: 3px;
@@ -33,25 +46,22 @@ export const Container = styled.div`
       );
     }
   }
-  .header_container {
-    position: -webkit-sticky; /* Safari & IE */
-    position: sticky;
-    top: -1.3em;
-    background-color: white;
-    padding: 0.5em;
-    border-radius: 0.5em;
-  }
 
   .header_container > .closeModal {
+    font-size: 2em;
     position: absolute;
     right: 0.5em;
-    top: 1em;
-    font-size: 2em;
+    color: white;
+    top: 1.3em;
+    cursor: pointer;
   }
+
   .header_container > .header {
     text-align: center;
-    font-size: 1.5em;
-    margin: 1.2em 0;
+    font-size: 1.2em;
+    padding: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .items {
@@ -91,5 +101,33 @@ export const Container = styled.div`
     width: 20px;
     float: right;
     cursor: pointer;
+  }
+
+  ${media.bigScreen} {
+    .modalItems {
+      background-color: white;
+      margin: 5em auto;
+      width: 65%;
+      max-width: 100%;
+      min-height: 70vh;
+      height: 100%;
+      border-radius: 0.5em;
+
+      ::-webkit-scrollbar {
+        width: 3px;
+        background-color: #f5f5f5;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #141414;
+        background-image: -webkit-linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 0, 0, 0.4) 50%,
+          transparent,
+          transparent
+        );
+      }
+    }
   }
 `;

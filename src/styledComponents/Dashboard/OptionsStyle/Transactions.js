@@ -1,4 +1,9 @@
 import styled from "styled-components";
+const media = {
+  bigScreen: `@media (min-width: 75em)`,
+  mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
+  tablet: `@media(min-width: 40em) and (max-width: 75em)`,
+};
 
 export const Transaction = styled.div`
   position: absolute;
@@ -31,5 +36,10 @@ export const Transaction = styled.div`
     cursor: pointer;
     color: white;
     font-size: 1.2rem;
+  }
+
+  ${media.tablet} {
+    width: 56%;
+    height: 80%;
   }
 `;

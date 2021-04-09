@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
@@ -6,30 +6,35 @@ import Activities from "./Activities";
 import Project from "./Projects";
 import Sidebar from "./sideBar";
 import UserInfo from "./userInfo";
+import CreateTransaction from "./Modals/CreateTransactionModal";
+import ListTransactions from "./Modals/listTransactionModal";
 import BalanceStats from "./balanceStats";
 import Announcements from "./Announcements";
 import DashboardSideBar from "./dashboardSidebar";
+
 import Nav from "./Nav";
 import { Dashboard as Dash } from "../../styledComponents/Dashboard/dashboardMain";
 
 const Dashboard = () => {
   const select = useSelector((e) => {
-    return e.ToggleSidebar;
+    return e;
   });
 
-  const dispatch = useDispatch();
   const history = useHistory();
   const cookies = new Cookies();
 
+  //console.log(select);
   return (
     <Router>
       {!cookies.get("auth_token") && !cookies.get("user_info")
         ? history.push("/")
         : ""}
+      {select.modalReducer.activitiesModal ? <CreateTransaction /> : null}
+      {select.modalReducer.activitiesList ? <ListTransactions /> : null}
       <Dash>
         <Nav />
         <Sidebar />
-        {select ? <DashboardSideBar /> : null}
+        {select.ToggleSidebar ? <DashboardSideBar /> : null}
         <div className="grid_container">
           <BalanceStats />
           <Announcements />

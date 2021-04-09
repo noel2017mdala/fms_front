@@ -22,6 +22,7 @@ const rootReducer = combineReducers({
   ToggleOptions,
   ListActivities,
   ListProjects,
+  modalReducer,
 });
 
 export default rootReducer;
