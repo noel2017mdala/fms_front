@@ -18,6 +18,8 @@ const Activities = () => {
   let getToken = cookies.get("auth_token");
   let getUserInfo = cookies.get("user_info");
 
+  console.log(getUserInfo);
+
   //dispatch function
   const dispatch = useDispatch();
 

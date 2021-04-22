@@ -26,9 +26,25 @@ export const ToggleProjectsModals = () => {
     type: "PROJECTS_MODAL",
   };
 };
+export const Open_Projects_Modal_List = () => {
+  return {
+    type: "OPEN_PROJECTS_MODAL_LIST",
+  };
+};
+export const Close_Projects_Modals_List = () => {
+  return {
+    type: "CLOSE_PROJECTS_MODAL_LIST",
+  };
+};
 
 export const CloseProjectsModals = () => {
   return {
     type: "CLOSE_PROJECTS_MODAL",
+  };
+};
+
+export const TOGGLE_LOGIN_MODAL = () => {
+  return {
+    type: "LOGIN_MODAL",
   };
 };

@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  Open_Projects_Modal_List,
+  ToggleProjectsModals,
+} from "../../../redux/actions/dashboard/Modal";
 import { Projects } from "../../../styledComponents/Dashboard/OptionsStyle/Projects";
 import CreateProject from "../Modals/createProjectModal";
 import ViewProjects from "../Modals/ViewProjectsModal";
@@ -9,16 +14,17 @@ const ProjectsOption = (props) => {
     viewProjects: false,
   });
 
+  const select = useSelector((e) => {
+    return e;
+  });
+
+  const dispatch = useDispatch();
   /*
   toggles between opening and
   closing the CreateProjects Projects modal
   */
   const CreateProjects = () => {
-    setState((prevstate) => ({
-      ...prevstate,
-      CreateProjectModal: !state.CreateProjectModal,
-      viewProjects: false,
-    }));
+    dispatch(ToggleProjectsModals());
   };
 
   /*
@@ -27,11 +33,7 @@ const ProjectsOption = (props) => {
   */
 
   const viewprojects = () => {
-    setState((prevstate) => ({
-      ...prevstate,
-      CreateProjectModal: false,
-      viewProjects: !state.viewProjects,
-    }));
+    dispatch(Open_Projects_Modal_List());
   };
   return (
     <Projects>
@@ -53,19 +55,6 @@ const ProjectsOption = (props) => {
           </li>
         </ul>
       </div>
-      {/*
-      if the state is true the moldal will open
-      else the moldal will be closed
-      */}
-      {state.CreateProjectModal ? (
-        <CreateProject state={state} setState={setState} />
-      ) : null}
-      {/*
-     shows the view projects modal
-      */}
-      {state.viewProjects ? (
-        <ViewProjects state={state} setState={setState} />
-      ) : null}
     </Projects>
   );
 };

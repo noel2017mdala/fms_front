@@ -2,30 +2,24 @@ import React, { Component } from "react";
 import Nav from "./Nav";
 import Main from "./Main";
 import Footer from "./Footer";
+import LoginModal from "../Dashboard/Modals/loginModal";
 import { Container } from "../../styledComponents";
+import { useSelector } from "react-redux";
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
+const Login = () => {
+  const select = useSelector((e) => {
+    return e;
+  });
 
-    this.state = {
-      active: false,
-    };
-  }
+  return (
+    <Container>
+      <Nav />
+      <Main />
+      <Footer />
 
-  Slider = () => {
-    this.setState({ active: !this.state.active });
-  };
-
-  render() {
-    return (
-      <Container>
-        <Nav state={this.state.active} Slider={this.Slider} />
-        <Main />
-        <Footer />
-      </Container>
-    );
-  }
-}
+      {select.LoginModal.displayModal ? <LoginModal /> : null}
+    </Container>
+  );
+};
 
 export default Login;

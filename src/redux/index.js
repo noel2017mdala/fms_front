@@ -9,6 +9,7 @@ import ToggleOptions from "./reducers/dashboard/optionsReducer";
 import modalReducer from "./reducers/dashboard/Modals/modalReducer";
 import ListActivities from "./reducers/dashboard/listActivities";
 import ListProjects from "./reducers/dashboard/listProjects";
+import LoginModal from "./reducers/dashboard/Modals/LoginModal";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   ListActivities,
   ListProjects,
   modalReducer,
+  LoginModal,
 });
 
 export default rootReducer;

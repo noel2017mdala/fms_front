@@ -64,7 +64,6 @@ export const createTransaction = (e, token) => {
     try {
       const response = await fetch(request);
       const resData = await response.json();
-      console.log(resData);
 
       if (resData["state"]) {
         toast.notify("transaction created successfully", {
@@ -277,7 +276,7 @@ export const createproject = (e) => {
     try {
       const response = await fetch(request);
       const resData = await response.json();
-      console.log(resData);
+
       if (resData["state"]) {
         toast.notify("Project created successfuly", {
           duration: 5000,
@@ -322,7 +321,6 @@ export const viewprojects = (e) => {
 };
 
 export const deleteProject = (e) => {
-  console.log(e);
   let url = `http://127.0.0.1:8000/api/deleteproject/${e.id}`;
   const headers = new Headers({
     Accept: "application/json",
@@ -338,7 +336,7 @@ export const deleteProject = (e) => {
     try {
       const response = await fetch(request);
       const resData = await response.json();
-      console.log(resData);
+
       if (resData["state"]) {
         toast.notify("Activity deleted successfuly", {
           duration: 1000,

@@ -8,6 +8,8 @@ import Sidebar from "./sideBar";
 import UserInfo from "./userInfo";
 import CreateTransaction from "./Modals/CreateTransactionModal";
 import ListTransactions from "./Modals/listTransactionModal";
+import ViewProjects from "./Modals/ViewProjectsModal";
+import CreateProject from "./Modals/createProjectModal";
 import BalanceStats from "./balanceStats";
 import Announcements from "./Announcements";
 import DashboardSideBar from "./dashboardSidebar";
@@ -31,6 +33,9 @@ const Dashboard = () => {
         : ""}
       {select.modalReducer.activitiesModal ? <CreateTransaction /> : null}
       {select.modalReducer.activitiesList ? <ListTransactions /> : null}
+
+      {select.modalReducer.projectList ? <ViewProjects /> : null}
+      {select.modalReducer.projectsModal ? <CreateProject /> : null}
       <Dash>
         <Nav />
         <Sidebar />

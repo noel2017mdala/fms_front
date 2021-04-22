@@ -73,7 +73,7 @@ export const Activities = styled.div`
   }
 
   ${media.bigScreen} {
-    max-height: 89%;
+    max-height: 120%;
     width: 45%;
     margin: 1em 2em;
 
@@ -84,8 +84,8 @@ export const Activities = styled.div`
 
     .top-bar > ul > li {
       display: inline-block;
-      margin: 0.9em;
-      padding-bottom: 0.6em;
+      margin: 0.5em;
+      padding-bottom: 0.3em;
       font-size: 1.4em;
       cursor: pointer;
     }
@@ -94,7 +94,9 @@ export const Activities = styled.div`
   ${media.tablet} {
     width: 50%;
     margin: 1em;
-    max-height: 95%;
+    height: 90%;
+    // max-height: 95%;
+    //height: 97vh;
 
     .top-bar > h3 {
       text-align: center;
@@ -111,7 +113,7 @@ export const Activities = styled.div`
     .top-bar > ul > li {
       display: inline-block;
       margin: 0.5em;
-      padding-bottom: 0.6em;
+      padding-bottom: 0.5em;
       font-size: 0.8em;
       cursor: pointer;
     }

@@ -107,7 +107,7 @@ export const createTransaction = (e, token) => {
         return true;
         // dispatch({ type: "CREATE_TRANSACTION", payLoad: resData });
       } else {
-        common.alertMsg("Failed to create Transaction");
+        common.alertMsg("Failed to create Transaction", 5000);
       }
     } catch {
       common.alertMsg("transaction created successfully", {

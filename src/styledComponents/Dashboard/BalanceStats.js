@@ -7,13 +7,6 @@ const media = {
 };
 export const BalanceStats = styled.div`
   background-color: white;
-  // .chartContainer {
-  //   height: 50vh;
-  //   margin: 2em;
-  //   // margin-top: 2em;
-  //   width: 35em;
-  //   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  // }
 
   margin-top: 1em;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
@@ -28,16 +21,6 @@ export const BalanceStats = styled.div`
     text-align: center;
   }
 
-  // ${media.mobile_landscape} {
-  //   width: 75%;
-  //   margin: 0 auto;
-  //   margin-top: 2em;
-
-  //   .chartContainer {
-  //     height: 60vh;
-  //   }
-  // }
-
   ${media.bigScreen} {
     // height: 50vh;
     // width: 50%;
@@ -49,7 +32,7 @@ export const BalanceStats = styled.div`
 
   ${media.tablet} {
     width: 50%;
-    height: 45vh;
+    height: 55vh;
     margin: 1em;
   }
 `;

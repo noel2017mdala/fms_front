@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import image from "../images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg";
 
 const media = {
-  mobile: "@media(max-width: 550px)",
+  // mobile_landscape: `@media (max-width: 40em) and (orientation: landscape)`,
+  tablet: `@media(min-width: 40em) and (max-width: 75em)`,
+  bigScreen: `@media (min-width: 50em)`,
 };
 
 export const Container = styled.div`

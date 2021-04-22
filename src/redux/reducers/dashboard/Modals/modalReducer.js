@@ -55,6 +55,24 @@ const modalReducer = (state = modal, action) => {
       };
       return state;
 
+    case "OPEN_PROJECTS_MODAL_LIST":
+      state = {
+        activitiesModal: false,
+        projectsModal: false,
+        activitiesList: false,
+        projectList: !state.activitiesModal,
+      };
+      return state;
+
+    case "CLOSE_PROJECTS_MODAL_LIST":
+      state = {
+        activitiesModal: false,
+        projectsModal: false,
+        activitiesList: false,
+        projectList: false,
+      };
+      return state;
+
     case "CLOSE_PROJECTS_MODAL":
       state = {
         activitiesModal: false,

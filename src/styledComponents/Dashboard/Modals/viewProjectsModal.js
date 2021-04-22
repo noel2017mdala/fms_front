@@ -1,19 +1,28 @@
 import styled from "styled-components";
 
+const media = {
+  mobile: `@media(max-width: 40em)`,
+  tablet: `@media(min-width: 40em) and (max-width: 75em)`,
+  bigScreen: `@media (min-width: 75em)`,
+};
+
 export const Background = styled.div`
-  color: black;
-  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  height: 130vh;
+  max-height: 130vh;
 
   .listProjectsWrapper {
-    position: absolute;
-    width: 100vw;
-    height: 60vh;
-    left: calc(-59vw + 40%);
-    top: -7.9em;
-    background: white;
-    color: #000;
-    z-index: 10;
-    border-radius: 10px;
+    background-color: white;
+    margin: 4em auto;
+    width: 70vw;
+    max-width: 100%;
+    min-height: 70vh;
+    height: 50vh;
+    border-radius: 0.5em;
     overflow: auto;
 
     ::-webkit-scrollbar {
@@ -35,18 +44,22 @@ export const Background = styled.div`
   }
 
   .listProjects_header .closeModal {
+    font-size: 2em;
     position: absolute;
     right: 0.5em;
-    top: 1em;
-    font-size: 2em;
+    color: white;
+    top: 1.3em;
+    cursor: pointer;
   }
 
-  .listProjects_header h3{
+  .listProjects_header h3 {
     text-align: center;
-    font-size: 1.5em;
-    margin: 1.2em 0;
+    font-size: 1.2em;
+    padding: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-    
+
   .items {
     display: flex;
     flex-direction: column;
@@ -63,7 +76,7 @@ export const Background = styled.div`
     list-style: none;
   }
 
-  .project_list  ul li {
+  .project_list ul li {
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 5px;
@@ -77,11 +90,50 @@ export const Background = styled.div`
     width: 20px;
     float: right;
     cursor: pointer;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
-  .delete_project:hover{
+  .delete_project:hover {
     transform: scale(1.1);
   }
 
+  ${media.bigScreen} {
+    .listProjectsWrapper {
+      background-color: white;
+      margin: 5em auto;
+      width: 65%;
+      max-width: 100%;
+      min-height: 70vh;
+      height: 80vh;
+      border-radius: 0.5em;
+      overflow: auto;
+
+      ::-webkit-scrollbar {
+        width: 3px;
+        background-color: #f5f5f5;
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #141414;
+        background-image: -webkit-linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 0, 0, 0.4) 50%,
+          transparent,
+          transparent
+        );
+      }
+    }
+
+    .transaction_list > ul li {
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 5px;
+      margin: 0.8em auto;
+      font-size: 0.9em;
+      width: 80%;
+      text-align: center;
+      // cursor: pointer;
+    }
+    }
   }
 `;

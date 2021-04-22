@@ -31,7 +31,7 @@ export const Announcements = styled.div`
 
   ${media.tablet} {
     width: 50%;
-    height: 45vh;
+    height: 55vh;
     margin: 1em;
     margin-right: 2em;
   }

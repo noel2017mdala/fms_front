@@ -24,11 +24,12 @@ export const Container = styled.div`
   .modalItems {
     background-color: white;
     margin: 5em auto;
-    width: 90%;
+    width: 70vw;
     max-width: 100%;
     min-height: 70vh;
-    height: 100%;
+    height: 50vh;
     border-radius: 0.5em;
+    overflow: auto;
 
     ::-webkit-scrollbar {
       width: 3px;
@@ -110,8 +111,9 @@ export const Container = styled.div`
       width: 65%;
       max-width: 100%;
       min-height: 70vh;
-      height: 100%;
+      height: 80vh;
       border-radius: 0.5em;
+      overflow: auto;
 
       ::-webkit-scrollbar {
         width: 3px;
@@ -128,6 +130,17 @@ export const Container = styled.div`
           transparent
         );
       }
+    }
+
+    .transaction_list > ul li {
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 5px;
+      margin: 0.8em auto;
+      font-size: 0.9em;
+      width: 80%;
+      text-align: center;
+      // cursor: pointer;
     }
   }
 `;

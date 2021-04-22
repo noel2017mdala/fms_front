@@ -7,6 +7,7 @@ import {
   deleteProject,
   getProjects,
 } from "../../../redux/actions/dashboard/projectAction";
+import { Close_Projects_Modals_List } from "../../../redux/actions/dashboard/Modal";
 import Cookies from "universal-cookie";
 import Bin from "../../../images/bin.png";
 
@@ -23,12 +24,6 @@ const ViewProjects = (props) => {
   const select = useSelector((e) => {
     return e;
   });
-
-  //component state
-  // const [state, setState] = useState({
-  //   showDeleteModal: false,
-  //   userData: userData,
-  // });
 
   // dispatches the action when the component renders
   useEffect(() => {
@@ -58,10 +53,7 @@ const ViewProjects = (props) => {
               className="closeModal"
               onClick={(e) => {
                 e.preventDefault();
-                props.setState((prevState) => ({
-                  ...prevState,
-                  viewProjects: false,
-                }));
+                dispatch(Close_Projects_Modals_List());
               }}
             >
               &times;

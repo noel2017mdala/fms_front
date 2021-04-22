@@ -12,7 +12,7 @@ import Cookies from "universal-cookie";
 
 import { Container } from "../../../styledComponents/Dashboard/Modals/createTransactionModal";
 
-const CreateTransaction = ({ state, setState }) => {
+const CreateTransaction = () => {
   // user cookies
   const cookies = new Cookies();
 

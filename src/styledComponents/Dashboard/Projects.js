@@ -69,13 +69,6 @@ export const Projects = styled.div`
     text-align: center;
   }
 
-  // ${media.mobile_landscape} {
-  //   width: 75%;
-  //   margin: 0 auto;
-  //   margin-top: 2em;
-  //   min-height: 110vh;
-  // }
-
   ${media.bigScreen} {
     max-height: 89%;
     width: 45%;
@@ -88,6 +81,8 @@ export const Projects = styled.div`
   ${media.tablet} {
     width: 50%;
     margin: 1em;
-    max-height: 95%;
+    //height: 90%;
+    //height: 100vh;
+    height: 90%;
   }
 `;

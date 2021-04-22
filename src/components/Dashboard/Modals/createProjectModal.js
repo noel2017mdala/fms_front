@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { useSpring, animated } from "react-spring";
 import { createproject } from "../../../redux/actions/actionCreator";
+import { Close_Projects_Modals_List } from "../../../redux/actions/dashboard/Modal";
 import toast from "toasted-notes";
 import Cookies from "universal-cookie";
 import { Background } from "../../../styledComponents/Dashboard/Modals/createProjectsModal";
@@ -10,12 +11,7 @@ import { getProjects } from "../../../redux/actions/dashboard/projectAction";
 
 const CreateProject = (props) => {
   //project options state to close and open the create project modal
-  const closeModal = () => {
-    props.setState((prevState) => ({
-      ...prevState,
-      CreateProjectModal: !props.state.CreateProjectModal,
-    }));
-  };
+
   //dispatch variable
   const dispatch = useDispatch();
 
@@ -60,7 +56,7 @@ const CreateProject = (props) => {
             className="closeModal"
             onClick={(e) => {
               e.preventDefault();
-              closeModal();
+              dispatch(Close_Projects_Modals_List());
             }}
           >
             &times;
@@ -106,7 +102,7 @@ const CreateProject = (props) => {
                   className="cancel"
                   onClick={(e) => {
                     e.preventDefault();
-                    closeModal();
+                    dispatch(Close_Projects_Modals_List());
                   }}
                 >
                   Cancel

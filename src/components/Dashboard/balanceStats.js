@@ -31,7 +31,6 @@ const BalanceStats = () => {
       {!select.getTransaction.amount_transaction
         ? ""
         : select.getTransaction.amount_transaction.map((e) => {
-            // console.log("rerendered");
             prevAmount.push(e.prev_Amount);
             days.push(e.date_value);
           })}

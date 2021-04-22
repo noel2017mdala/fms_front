@@ -50,7 +50,6 @@ const Main = () => {
 
   if (cookies.get("auth_token") && cookies.get("user_info")) {
     history.push("/dashboard");
-    console.log("Ready to push");
   }
 
   return (
