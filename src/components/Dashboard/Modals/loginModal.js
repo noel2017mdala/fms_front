@@ -41,7 +41,6 @@ const LoginModal = (props) => {
       );
     } else {
       dispatch(Register(uiState));
-      console.log(uiState);
     }
   };
 

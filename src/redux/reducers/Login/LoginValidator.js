@@ -6,7 +6,7 @@ const LoginValidator = (state = false, action) => {
       return (state = false);
 
     case "LOGIN_TOKEN":
-      return (status = true);
+      return (state = true);
 
     default:
       return state;

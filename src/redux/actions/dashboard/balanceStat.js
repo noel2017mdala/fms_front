@@ -1,6 +1,5 @@
 import common from "../../../classes/componentClass";
 export const getBalance = (userInfo, token) => {
-  console.log(userInfo);
   let url = `http://127.0.0.1:8000/api/getamountbalance/${userInfo.id}`;
   const headers = new Headers({
     Accept: "application/json",
